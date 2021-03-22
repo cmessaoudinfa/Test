@@ -1,0 +1,24 @@
+[
+   {
+      "objectGuid": "3JA8tFe6qXagmaEvUxldwI",
+      "objectName": "pSDLC",
+      "objectType": "PROCESS",
+      "path": "/Explore/Workspaces/cmessaud",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "J2mi0UuDppppppp-gt-14653848-2021-03-22T13:31:54.573Z::pd.xml"
+         }
+      }
+   }
+]
