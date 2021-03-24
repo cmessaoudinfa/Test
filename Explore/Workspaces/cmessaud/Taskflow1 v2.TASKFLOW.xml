@@ -1,0 +1,289 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>AT4W6jKsJlv58pI-gt-231587-2021-03-24T08:29:06.421Z::tf.xml</types1:EntryId>
+      <types1:Name>Taskflow1_v2</types1:Name>
+      <types1:MimeType>application/xml+taskflow</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>chihab-eu</types1:CreatedBy>
+      <types1:CreationDate>2021-03-24T08:29:06Z</types1:CreationDate>
+      <types1:ModifiedBy>chihab-eu</types1:ModifiedBy>
+      <types1:ModificationDate>2021-03-24T08:38:00Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>chihab-eu</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-24T08:29:16Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/tf.Taskflow1-2/Taskflow1-2.tf.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <taskflow xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                   xmlns:list="urn:activevos:spi:list:functions"
+                   displayName="Taskflow1 v2"
+                   name="Taskflow1_v2"
+                   overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags/>
+            <generator>Informatica Process Designer 11</generator>
+            <tempFields>
+               <field description="" name="Data Task 1" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:tsk-account-MD</option>
+                  </options>
+               </field>
+               <field description="" name="Data Task 2" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:tsk-account-TX</option>
+                  </options>
+               </field>
+               <field description="" name="TotalStatus" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+               <field description="" name="Data Task 3" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:tsk-account-CA</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kjycvoth" targetId="kjycvotg"/>
+               </start>
+               <container id="kjycvotg" type="parallel">
+                  <title>Parallel Paths 1</title>
+                  <flow id="kjycvotk">
+                     <eventContainer id="kjycvouk">
+                        <service id="kjycvott">
+                           <title>Data Task 1</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                              <parameter name="Task Name" source="constant" updatable="true">tsk_account_MD</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">8AkMty76lCBfR4EkDJlTKX</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="tsk-account-MD">temp.Data Task 1</operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.Data Task 1/output/Object_Name">Object Name</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Log_Id">Log Id</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Task_Id">Task Id</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Task_Status">Task Status</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.Data Task 1/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.Data Task 1/output/Error_Message">Error Message</operation>
+                           </serviceOutput>
+                        </service>
+                        <events>
+                           <catch faultField="temp.Data Task 1/fault"
+                                  id="kjycvoui"
+                                  interrupting="true"
+                                  name="error">
+                              <suspend/>
+                           </catch>
+                           <catch faultField="temp.Data Task 1/fault"
+                                  id="kjycvouj"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <link id="kjycvotl" targetId="kjycvotg" type="containerLink"/>
+                  </flow>
+                  <flow id="kjycvotn">
+                     <eventContainer id="kjycvov4">
+                        <service id="kjycvotz">
+                           <title>Data Task 2</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                              <parameter name="Task Name" source="constant" updatable="true">tsk_account_TX</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">5XbYTl8h046c7OtNtvoBkh</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="tsk-account-TX">temp.Data Task 2</operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.Data Task 2/output/Object_Name">Object Name</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Log_Id">Log Id</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Task_Id">Task Id</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Task_Status">Task Status</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.Data Task 2/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.Data Task 2/output/Error_Message">Error Message</operation>
+                           </serviceOutput>
+                        </service>
+                        <events>
+                           <catch faultField="temp.Data Task 2/fault"
+                                  id="kjycvov2"
+                                  interrupting="true"
+                                  name="error">
+                              <suspend/>
+                           </catch>
+                           <catch faultField="temp.Data Task 2/fault"
+                                  id="kjycvov3"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <link id="kjycvoto" targetId="kjycvotg" type="containerLink"/>
+                  </flow>
+                  <link id="kjycvotj" targetId="kjycvotk" type="containerLink"/>
+                  <link id="kjycvotm" targetId="kjycvotn" type="containerLink"/>
+                  <link id="kjycvovf" targetId="kjycvove"/>
+               </container>
+               <container id="kjycvovx" type="exclusive">
+                  <title>Success ?</title>
+                  <flow id="kjycvow1">
+                     <eventContainer id="kjycvoxm">
+                        <service id="kjycvox0">
+                           <title>Data Task 3</title>
+                           <serviceName>ICSExecuteDataTask</serviceName>
+                           <serviceGUID/>
+                           <serviceInput>
+                              <parameter name="Wait for Task to Complete" source="constant" updatable="true">true</parameter>
+                              <parameter name="Max Wait" source="constant" updatable="true">604800</parameter>
+                              <parameter name="Task Name" source="constant" updatable="true">tsk_account_CA</parameter>
+                              <parameter name="GUID" source="constant" updatable="true">dWfs9fc3MEUhZoaeTimHCi</parameter>
+                              <parameter name="Task Type" source="constant" updatable="true">MCT</parameter>
+                              <parameter name="Has Inout Parameters" source="constant" updatable="true">false</parameter>
+                              <parameter name="taskField" source="nested">
+                                 <operation source="field" to="tsk-account-CA">temp.Data Task 3</operation>
+                              </parameter>
+                           </serviceInput>
+                           <serviceOutput>
+                              <operation source="field" to="temp.Data Task 3/output/Object_Name">Object Name</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Run_Id">Run Id</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Log_Id">Log Id</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Task_Id">Task Id</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Task_Status">Task Status</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Success_Source_Rows">Success Source Rows</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Failed_Source_Rows">Failed Source Rows</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Success_Target_Rows">Success Target Rows</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Failed_Target_Rows">Failed Target Rows</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Start_Time">Start Time</operation>
+                              <operation source="field" to="temp.Data Task 3/output/End_Time">End Time</operation>
+                              <operation source="field" to="temp.Data Task 3/output/Error_Message">Error Message</operation>
+                           </serviceOutput>
+                        </service>
+                        <events>
+                           <catch faultField="temp.Data Task 3/fault"
+                                  id="kjycvoxk"
+                                  interrupting="true"
+                                  name="error">
+                              <suspend/>
+                           </catch>
+                           <catch faultField="temp.Data Task 3/fault"
+                                  id="kjycvoxl"
+                                  interrupting="true"
+                                  name="warning"/>
+                        </events>
+                     </eventContainer>
+                     <link id="kjycvow2" targetId="kjycvovx" type="containerLink"/>
+                  </flow>
+                  <flow id="kjycvow4">
+                     <end id="kjycvowu">
+                        <title>End 1</title>
+                     </end>
+                  </flow>
+                  <link id="kjycvow0" targetId="kjycvow1" type="containerLink">
+                     <condition source="formula">
+                        <function name="string-equals">
+                           <arg name="left">{$temp.TotalStatus}</arg>
+                           <arg name="right">Success</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="kjycvow3" targetId="kjycvow4" type="containerLink"/>
+                  <link id="kjycvovz" targetId="c"/>
+               </container>
+               <assignment id="kjycvove">
+                  <title>Assign TotalStatus v2</title>
+                  <operation source="formula" to="temp.TotalStatus">
+                     <expression language="XQuery">if ($temp.DataTask1[1]/output[1]/Task_Status = 1 and $temp.DataTask2[1]/output[1]/Task_Status = 1) then "Success" else "Failure"</expression>
+                  </operation>
+                  <link id="kjycvovy" targetId="kjycvovx"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+            <dependencies>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="tsk-account-MD"
+                              isByCopy="true"
+                              name="tsk-account-MD">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="tsk-account-TX"
+                              isByCopy="true"
+                              name="tsk-account-TX">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              displayName="tsk-account-CA"
+                              isByCopy="true"
+                              name="tsk-account-CA">
+                  <description/>
+                  <tags/>
+                  <detail>
+                     <field label="Input Parameters" name="input" type="reference"/>
+                     <field label="TaskProperties Parameters"
+                            name="taskProperties"
+                            type="reference"/>
+                     <field label="Output Parameters" name="output" type="reference"/>
+                     <field label="Fault" name="fault" type="reference"/>
+                  </detail>
+               </processObject>
+            </dependencies>
+         </taskflow>
+      </types1:Entry>
+      <types1:GUID>1cG6voGz8pyjgKRqVIvzQg</types1:GUID>
+      <types1:DisplayName>Taskflow1 v2</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-03-24T08:42:55.572Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
