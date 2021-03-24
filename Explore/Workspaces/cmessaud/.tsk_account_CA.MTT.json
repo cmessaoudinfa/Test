@@ -1,0 +1,114 @@
+[
+   {
+      "objectGuid": "0qkvaG8hWNygbohXxrgX27",
+      "objectName": "tsk_account_CA",
+      "objectType": "MTT",
+      "path": "/Explore/Workspaces/cmessaud",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [
+            "0ZlDA65eIoohtVa7Y6964R",
+            "6rZRAeA7tG5jN3KzRPk2Sm",
+            "iK0My201sC4lcSNnffAWcK"
+         ],
+         "repoInfo": {
+            "repoHandle": "0100HB0Z0000000000CB"
+         }
+      }
+   },
+   {
+      "objectGuid": "0ZlDA65eIoohtVa7Y6964R",
+      "objectName": "FlatFile",
+      "objectType": "Connection",
+      "path": "/SYS",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": null,
+            "documentState": "COMPLETE"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "0100HB0B0000000000FF"
+         }
+      }
+   },
+   {
+      "objectGuid": "6rZRAeA7tG5jN3KzRPk2Sm",
+      "objectName": "FRWPF12WQWV-AAD",
+      "objectType": "AgentGroup",
+      "path": "/SYS",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": null,
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "0100HB2500000000000X"
+         }
+      }
+   },
+   {
+      "objectGuid": "iK0My201sC4lcSNnffAWcK",
+      "objectName": "Account_by_State",
+      "objectType": "DTEMPLATE",
+      "path": "/Explore/Workspaces/cmessaud",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "0100HB170000000000A2"
+         }
+      }
+   }
+]

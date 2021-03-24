@@ -1,0 +1,109 @@
+[
+   {
+      "objectGuid": "fDH0eZZqCEHcB8iLX8H26M",
+      "objectName": "Taskflow1",
+      "objectType": "TASKFLOW",
+      "path": "/Explore/Workspaces/cmessaud",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [
+            "8aosUwO30G6kXy3SEahmuB",
+            "1ixaYg9ODaQd5bUMmhz0c6",
+            "0qkvaG8hWNygbohXxrgX27"
+         ],
+         "repoInfo": {
+            "repoHandle": "hKhxsnCmp6oIuQa-gt-225433-2021-03-24T08:23:11.126Z::tf.xml"
+         }
+      }
+   },
+   {
+      "objectGuid": "8aosUwO30G6kXy3SEahmuB",
+      "objectName": "tsk_account_TX",
+      "objectType": "MTT",
+      "path": "/Explore/Workspaces/cmessaud",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "0100HB0Z0000000000CC"
+         }
+      }
+   },
+   {
+      "objectGuid": "1ixaYg9ODaQd5bUMmhz0c6",
+      "objectName": "tsk_account_MD",
+      "objectType": "MTT",
+      "path": "/Explore/Workspaces/cmessaud",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "0100HB0Z0000000000CA"
+         }
+      }
+   },
+   {
+      "objectGuid": "0qkvaG8hWNygbohXxrgX27",
+      "objectName": "tsk_account_CA",
+      "objectType": "MTT",
+      "path": "/Explore/Workspaces/cmessaud",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "0100HB0Z0000000000CB"
+         }
+      }
+   }
+]
