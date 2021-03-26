@@ -1,0 +1,48 @@
+[
+   {
+      "objectGuid": "6KXYotYjsauetRx9S9WsIY",
+      "objectName": "CN-DataProfiling",
+      "objectType": "AI_CONNECTION",
+      "path": "/Explore/Hackathon 2020/Use Case 1",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [
+            "26UWAPHDz9fgm0BP6aZPGE"
+         ],
+         "repoInfo": {
+            "repoHandle": "QypLK2D86CjqFVN-gt-11408646-2021-02-09T09:57:49.688Z::conn.xml"
+         }
+      }
+   },
+   {
+      "objectGuid": "26UWAPHDz9fgm0BP6aZPGE",
+      "objectName": "SC-DataProfiling",
+      "objectType": "AI_SERVICE_CONNECTOR",
+      "path": "/Explore/Hackathon 2020/Use Case 1",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "zfYtjCtbdsreK8Z-gt-3536371-2021-02-03T15:41:57.413Z::svc.xml"
+         }
+      }
+   }
+]

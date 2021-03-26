@@ -1,0 +1,56 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>QypLK2D86CjqFVN-gt-11408646-2021-02-09T09:57:49.688Z::conn.xml</types1:EntryId>
+      <types1:Name>CN-DataProfiling</types1:Name>
+      <types1:ParentFlowIds>0tBghuImXycotFg-gt-449252-2021-02-24T14:15:05.699Z::pd.xml,3z4KhPVEQrXhNUd-gt-12441113-2021-03-17T09:52:25.885Z::pd.xml,aaa-gt-7021235-2021-02-09T10:04:04.005Z::pd.xml,bdzsvE3C7snSDg8-gt-7755748-2021-02-09T16:54:02.802Z::pd.xml,chspiRASmvD4teI-gt-149756-2021-02-22T14:38:04.403Z::pd.xml,GD4ARW8UBM7zsZv-gt-264377-2021-02-22T08:14:55.524Z::pd.xml,SOC074Rpf6JfOMW-gt-13662319-2021-03-19T11:07:16.711Z::pd.xml,T6kck8jKBmeK3jh-gt-6681575-2021-03-09T16:11:22.741Z::pd.xml,W9VYxWPQE8jIw8j-gt-13683894-2021-02-17T09:24:53.787Z::pd.xml,XLi36ln6lRuImXy-gt-14180736-2021-03-19T11:08:11.803Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>mbamba-eu@eu-cdp.informatica.demo</types1:CreatedBy>
+      <types1:CreationDate>2021-02-09T09:57:50Z</types1:CreationDate>
+      <types1:ModifiedBy>mbamba-eu@eu-cdp.informatica.demo</types1:ModifiedBy>
+      <types1:ModificationDate>2021-02-21T12:53:09Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>mbamba-eu@eu-cdp.informatica.demo</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-18T14:52:16Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/CN-DataProfiling/CN-DataProfiling.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="CN-DataProfiling"
+                     label="CN-DataProfiling"
+                     name="CN-DataProfiling">
+            <description/>
+            <tags/>
+            <agent/>
+            <attributes>
+               <attribute encrypted="false"
+                          name="IICSBaseServerUrlv2"
+                          value="https://dm-em.informaticacloud.com/ma/api/v2"/>
+               <attribute encrypted="true" name="username" value=""/>
+               <attribute encrypted="true" name="password" value=""/>
+               <attribute encrypted="false"
+                          name="icBaseServerUrlv3"
+                          value="https://emw1.dm-em.informaticacloud.com/saas/api/v2"/>
+            </attributes>
+            <businessConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                               agentOnly="false"
+                               connectorPath="project:/rt.connector/SC_DataProfiling/SC_DataProfiling_svcDef.xml"
+                               guid="26UWAPHDz9fgm0BP6aZPGE"
+                               name="SC-DataProfiling"
+                               supportsConnectionTest="false"
+                               uuid="8c1f4300-a05a-40bc-9030-a2026be7906f">
+               <description/>
+            </businessConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>6KXYotYjsauetRx9S9WsIY</types1:GUID>
+      <types1:DisplayName>CN-DataProfiling</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-03-26T14:28:34.596Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

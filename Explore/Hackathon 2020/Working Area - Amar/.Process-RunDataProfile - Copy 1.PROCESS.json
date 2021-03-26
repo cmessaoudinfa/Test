@@ -1,0 +1,71 @@
+[
+   {
+      "objectGuid": "15jGbMr37EQjY11iiI1LUu",
+      "objectName": "Process-RunDataProfile - Copy 1",
+      "objectType": "PROCESS",
+      "path": "/Explore/Hackathon 2020/Working Area - Amar",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": null,
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [
+            "04Ih07Q3NbEi23zI1m4Iqm",
+            "6KXYotYjsauetRx9S9WsIY"
+         ],
+         "repoInfo": {
+            "repoHandle": "XLi36ln6lRuImXy-gt-14180736-2021-03-19T11:08:11.803Z::pd.xml"
+         }
+      }
+   },
+   {
+      "objectGuid": "04Ih07Q3NbEi23zI1m4Iqm",
+      "objectName": "PO-TableFields",
+      "objectType": "PROCESS_OBJECT",
+      "path": "/Explore/Hackathon 2020/Use Case 1",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "VbeOm6S6fPAreFR-gt-274877-2021-02-22T08:37:55.768Z::po.xml"
+         }
+      }
+   },
+   {
+      "objectGuid": "6KXYotYjsauetRx9S9WsIY",
+      "objectName": "CN-DataProfiling",
+      "objectType": "AI_CONNECTION",
+      "path": "/Explore/Hackathon 2020/Use Case 1",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "QypLK2D86CjqFVN-gt-11408646-2021-02-09T09:57:49.688Z::conn.xml"
+         }
+      }
+   }
+]

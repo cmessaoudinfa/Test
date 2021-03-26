@@ -1,0 +1,1352 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>zfYtjCtbdsreK8Z-gt-3536371-2021-02-03T15:41:57.413Z::svc.xml</types1:EntryId>
+      <types1:Name>SC-DataProfiling</types1:Name>
+      <types1:ParentFlowIds>QypLK2D86CjqFVN-gt-11408646-2021-02-09T09:57:49.688Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>mbamba-eu@eu-cdp.informatica.demo</types1:CreatedBy>
+      <types1:CreationDate>2021-02-03T15:41:57Z</types1:CreationDate>
+      <types1:ModifiedBy>mbamba-eu@eu-cdp.informatica.demo</types1:ModifiedBy>
+      <types1:ModificationDate>2021-03-18T11:49:38Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>mbamba-eu@eu-cdp.informatica.demo</types1:PublishedBy>
+      <types1:PublicationDate>2021-03-18T14:52:00Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/SC_DataProfiling/SC_DataProfiling_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="SC-DataProfiling"
+                            label=""
+                            name="SC-DataProfiling"
+                            uuid="8c1f4300-a05a-40bc-9030-a2026be7906f">
+            <description/>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description=""
+                                    masked="false"
+                                    name="IICSBaseServerUrlv2"
+                                    required="true"
+                                    testWith="https://dm-em.informaticacloud.com/ma/api/v2"
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    masked="true"
+                                    name="username"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    masked="true"
+                                    name="password"
+                                    required="true"
+                                    testWith=""
+                                    type="string"/>
+               <connectionAttribute description=""
+                                    masked="false"
+                                    name="icBaseServerUrlv3"
+                                    required="true"
+                                    testWith="https://emw1.dm-em.informaticacloud.com/saas/api/v2"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="LoginV2"
+                       maxRedirects="100"
+                       name="LoginV2"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input/>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$IICSBaseServerUrlv2}/user/login"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                        <body>{{"@type":"login","username":"{$username}","password":"{$password}"}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description=""
+                            name="IICS_Session_ID"
+                            property="icSessionId"
+                            type="string"/>
+                     <field description=""
+                            name="IICS_Username"
+                            property="name"
+                            type="string"/>
+                     <field description=""
+                            name="IICS_Server_URL"
+                            property="serverUrl"
+                            type="string"/>
+                     <field description=""
+                            name="IICS_Org_Id"
+                            property="orgId"
+                            type="string"/>
+                     <field description=""
+                            name="IICS_emails"
+                            property="emails"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="Logout"
+                       maxRedirects="100"
+                       name="Logout"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter label="IICS Session ID"
+                                name="icSessionId"
+                                required="true"
+                                testWith="8fn7hDhGLKNlsnupwKhcWA"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$IICSBaseServerUrlv2}/user/logout"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="icSessionId">{$icSessionId}</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="true"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetConnectionList"
+                       maxRedirects="100"
+                       name="GetConnectionList"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter description="IICS Session ID"
+                                label="IICS Session ID"
+                                name="icSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="3eNJt6R5xJtd8mP0az7pAb"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$icBaseServerUrlv3}/connection"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="icSessionId">{$icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="ConnectionList" type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{for $data in /root//id
+return
+&lt;connection&gt;
+{$data/../*}
+&lt;/connection&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetTablesInConnection"
+                       maxRedirects="100"
+                       name="GetTablesInConnection"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="ConnectionID"
+                                required="false"
+                                testWith="0100HB0B0000000000E5"
+                                type="string"/>
+                     <parameter name="ConnectionName"
+                                required="false"
+                                testWith="Snowflake_HAT_ODBC"
+                                type="string"/>
+                     <parameter name="icSessionId"
+                                required="false"
+                                testWith="8WT3C9SvzkycMMFhYOUnAD"
+                                type="string"/>
+                     <parameter name="federatedId"
+                                required="false"
+                                testWith="6fO1t8hONiekja1SP1PLst"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$icBaseServerUrlv3}/connection/source/{$ConnectionID}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="icSessionId">{$icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="TablesList" type="objectlist">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{for $data in /root//id
+return
+&lt;Table&gt;
+&lt;ConnectionID&gt;{$ConnectionID}&lt;/ConnectionID&gt;
+&lt;ConnectionName&gt;{$ConnectionName}&lt;/ConnectionName&gt;
+&lt;ConnectionfederatedId&gt;{$federatedId}&lt;/ConnectionfederatedId&gt;
+{$data/../*}
+&lt;/Table&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetFieldsInTables"
+                       maxRedirects="100"
+                       name="GetFieldsInTables"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_ConnectionID"
+                                nogen="true"
+                                required="true"
+                                testWith="0100HB0B0000000000E5"
+                                type="string"/>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="true"
+                                testWith="91mNFKr9S8WeCeuEJIHmK8"
+                                type="string"/>
+                     <parameter name="i_TableName"
+                                nogen="true"
+                                required="true"
+                                testWith="REGIONS"
+                                type="string"/>
+                     <parameter name="i_ProfileName"
+                                nogen="true"
+                                required="true"
+                                testWith="Test_Profile_REGIONS_MBA_88789"
+                                type="string"/>
+                     <parameter name="i_Profiledescription"
+                                nogen="true"
+                                required="true"
+                                testWith="Auto generated"
+                                type="string"/>
+                     <parameter name="i_frsProjectId"
+                                nogen="true"
+                                required="true"
+                                testWith="0aJ8zNh7K2yhR7fK7DzpQK"
+                                type="string"/>
+                     <parameter name="i_frsFolderId"
+                                nogen="true"
+                                required="true"
+                                testWith="4htavE7MIAdb03ZjLiCsg4"
+                                type="string"/>
+                     <parameter name="i_orgId"
+                                nogen="true"
+                                required="true"
+                                testWith="0100HB"
+                                type="string"/>
+                     <parameter name="i_federatedId"
+                                nogen="true"
+                                required="true"
+                                testWith="6fO1t8hONiekja1SP1PLst"
+                                type="string"/>
+                     <parameter name="i_scheduleId"
+                                nogen="true"
+                                required="false"
+                                testWith="3An9EDktQx2ftjd4uCRZmU"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{$icBaseServerUrlv3}/connection/source/{$i_ConnectionID}/field/{$i_TableName}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="icSessionId">{$i_icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_createProfileXML" type="reference">
+                        <options>
+                           <option name="referenceTo"/>
+                        </options>
+                        <xquery>{&lt;createProfileXML&gt;
+&lt;name&gt;{$i_ProfileName}&lt;/name&gt;
+	&lt;orgId&gt;{$i_orgId}&lt;/orgId&gt;
+	&lt;description&gt;{$i_Profiledescription}&lt;/description&gt;
+	&lt;frsProjectId&gt;{$i_frsProjectId}&lt;/frsProjectId&gt;
+	&lt;frsFolderId&gt;{$i_frsFolderId}&lt;/frsFolderId&gt;
+	&lt;connectionId&gt;{$i_federatedId}&lt;/connectionId&gt;
+	&lt;isFilterEnabled&gt;false&lt;/isFilterEnabled&gt;
+    
+    &lt;runtimeOptions&gt;
+	 &lt;scheduleId&gt;{$i_scheduleId}&lt;/scheduleId&gt;
+		&lt;runtimeEnvironmentId/&gt;
+		&lt;defaultEmailNotification/&gt;
+          &lt;profileAdvProps&gt;
+            &lt;maxTopN/&gt;
+            &lt;maxPatterns/&gt;
+            &lt;maxPatternThresholdPercent/&gt;
+            &lt;maxRanks/&gt;
+            &lt;inferDateTime/&gt;
+            &lt;detectOutliers/&gt;
+            &lt;maxColumnsPerMapping/&gt;
+            &lt;minNoOfRowsForSplitMapping/&gt;
+            &lt;maxMemory/&gt;
+            &lt;maxPercentMemory/&gt;
+            &lt;defaultBufferBlockSize/&gt;
+            &lt;dtmBufferSize/&gt;
+            &lt;lineSequentialBufferLength/&gt;
+            &lt;stopOnErrors/&gt;
+          &lt;/profileAdvProps&gt;
+     &lt;/runtimeOptions&gt;
+	&lt;source&gt;
+		&lt;name&gt;{$i_TableName}&lt;/name&gt;
+        {
+        for $data in /root//id
+        where xs:integer($data/../precision) le 255
+        return
+		&lt;fields&gt;
+			&lt;name&gt;{$data/../name/text()}&lt;/name&gt;
+			&lt;dataType&gt;{$data/../type/text()}&lt;/dataType&gt;
+			&lt;precision&gt;{$data/../precision/text()}&lt;/precision&gt;
+			&lt;scale&gt;{$data/../scale/text()}&lt;/scale&gt;
+			&lt;pcType&gt;{$data/../pcType/text()}&lt;/pcType&gt;
+			&lt;order&gt;{$data/../columnIndex/text()}&lt;/order&gt;
+			&lt;isDeleted&gt;false&lt;/isDeleted&gt;
+			&lt;isMetadataUpdated&gt;false&lt;/isMetadataUpdated&gt;
+		&lt;/fields&gt;
+        }
+		&lt;sourceType&gt;DATASOURCE&lt;/sourceType&gt;
+	&lt;/source&gt;
+  {
+     for $data in /root//id
+     where xs:integer($data/../precision) le 255
+	 return
+	&lt;profileableFields&gt;
+		&lt;isDeleted&gt;false&lt;/isDeleted&gt;
+		&lt;sourceName&gt;{$i_TableName}&lt;/sourceName&gt;
+		&lt;fieldName&gt;{$data/../name/text()}&lt;/fieldName&gt;
+		&lt;fieldType&gt;DATASOURCEFIELD&lt;/fieldType&gt;
+	&lt;/profileableFields&gt;
+     }
+	&lt;samplingOptions&gt;
+		&lt;id /&gt;
+		&lt;rows&gt;-1&lt;/rows&gt;
+		&lt;samplingType&gt;ALL_ROWS&lt;/samplingType&gt;
+	&lt;/samplingOptions&gt;
+	&lt;drillDownType&gt;ON&lt;/drillDownType&gt;
+    
+&lt;/createProfileXML&gt;}</xquery>
+                     </field>
+                     <field description="" name="o_createProfileJSON" type="string">
+                        <xquery>{replace(replace(replace(replace(util:toJSON($o_createProfileXML),'\{"createProfileXML":',""),'"isFilterEnabled":"false"}}','"isFilterEnabled":"false"}'),':""',': null'),'"defaultEmailNotification": null','"defaultEmailNotification":true')}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="CreateProject"
+                       maxRedirects="100"
+                       name="CreateProject"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_ProjectName"
+                                required="true"
+                                testWith="Marcel_Test"
+                                type="string"/>
+                     <parameter name="i_Description"
+                                required="false"
+                                testWith="test for data profilling"
+                                type="string"/>
+                     <parameter name="i_icSessionId"
+                                required="false"
+                                testWith="9DSNWnThr2hbDIYhZHb682"
+                                type="string"/>
+                     <parameter name="i_IICS_Server_URL"
+                                required="false"
+                                testWith="https://emw1.dm-em.informaticacloud.com/saas"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{fn:substring-before($i_IICS_Server_URL , &#34;saas&#34;)||'frs/v1/Projects'}"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                        <body>{{"name":"{$i_ProjectName}","description":"{$i_Description}"}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="CreateProjectFolders"
+                       maxRedirects="100"
+                       name="CreateProjectFolders"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_ProjectID"
+                                required="true"
+                                testWith="0aJ8zNh7K2yhR7fK7DzpQK"
+                                type="string"/>
+                     <parameter name="i_FolderName"
+                                required="true"
+                                testWith="test_marcel_5"
+                                type="string"/>
+                     <parameter name="i_Description"
+                                nogen="true"
+                                required="true"
+                                testWith="test from marcel 5"
+                                type="string"/>
+                     <parameter name="i_IICS_Server_URL"
+                                required="true"
+                                testWith="https://emw1.dm-em.informaticacloud.com/saas"
+                                type="string"/>
+                     <parameter name="icSessionId"
+                                required="true"
+                                testWith="efpT6ypGXCLaZUqYGl3Q4y"
+                                type="string"/>
+                     <parameter name="ConnectionName" required="true" testWith="" type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{fn:substring-before($i_IICS_Server_URL , &#34;saas&#34;)||&#34;frs/v1/Projects('&#34;||$i_ProjectID||&#34;')/Folders&#34;}"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="IDS-SESSION-ID">{$icSessionId}</header>
+                        </httpHeaders>
+                        <body>{{"name":"{$i_FolderName}","description":"{$i_Description}"}}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_CreateProjectFolders" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-ProjectFolder</option>
+                        </options>
+                        <xquery>{for $data in /root
+return
+&lt;ProjectFolder&gt;
+   &lt;FolderID&gt;{$data/id/text()}&lt;/FolderID&gt;
+   &lt;FolderName&gt;{$data/name/text()}&lt;/FolderName&gt;
+   &lt;ConnectionName&gt;{$ConnectionName}&lt;/ConnectionName&gt;
+&lt;/ProjectFolder&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="CreateProfile"
+                       maxRedirects="100"
+                       name="CreateProfile"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_body"
+                                required="true"
+                                testWith="{ &#x9;&#34;samplingOptions&#34;: { &#x9;&#x9;&#34;samplingType&#34;: &#34;ALL_ROWS&#34;, &#x9;&#x9;&#34;id&#34;: null, &#x9;&#x9;&#34;rows&#34;: &#34;-1&#34; &#x9;}, &#x9;&#34;runtimeOptions&#34;: { &#x9;&#x9;&#34;profileAdvProps&#34;: { &#x9;&#x9;&#x9;&#34;dtmBufferSize&#34;: null, &#x9;&#x9;&#x9;&#34;maxPatterns&#34;: null, &#x9;&#x9;&#x9;&#34;maxPatternThresholdPercent&#34;: null, &#x9;&#x9;&#x9;&#34;lineSequentialBufferLength&#34;: null, &#x9;&#x9;&#x9;&#34;minNoOfRowsForSplitMapping&#34;: null, &#x9;&#x9;&#x9;&#34;maxTopN&#34;: null, &#x9;&#x9;&#x9;&#34;maxMemory&#34;: null, &#x9;&#x9;&#x9;&#34;maxRanks&#34;: null, &#x9;&#x9;&#x9;&#34;inferDateTime&#34;: null, &#x9;&#x9;&#x9;&#34;maxPercentMemory&#34;: null, &#x9;&#x9;&#x9;&#34;defaultBufferBlockSize&#34;: null, &#x9;&#x9;&#x9;&#34;stopOnErrors&#34;: null, &#x9;&#x9;&#x9;&#34;detectOutliers&#34;: null, &#x9;&#x9;&#x9;&#34;maxColumnsPerMapping&#34;: null &#x9;&#x9;}, &#x9;&#x9;&#34;runtimeEnvironmentId&#34;: null, &#x9;&#x9;&#34;scheduleId&#34;: &#34;3An9EDktQx2ftjd4uCRZmU&#34;, &#x9;&#x9;&#34;defaultEmailNotification&#34;: true &#x9;}, &#x9;&#34;frsFolderId&#34;: &#34;4htavE7MIAdb03ZjLiCsg4&#34;, &#x9;&#34;frsProjectId&#34;: &#34;0aJ8zNh7K2yhR7fK7DzpQK&#34;, &#x9;&#34;name&#34;: &#34;Test_Profile_REGIONS_MBA_UUIO&#34;, &#x9;&#34;description&#34;: &#34;Auto generated&#34;, &#x9;&#34;connectionId&#34;: &#34;6fO1t8hONiekja1SP1PLst&#34;, &#x9;&#34;profileableFields&#34;: [ &#x9;&#x9;{ &#x9;&#x9;&#x9;&#34;fieldName&#34;: &#34;REGION_ID&#34;, &#x9;&#x9;&#x9;&#34;isDeleted&#34;: &#34;false&#34;, &#x9;&#x9;&#x9;&#34;sourceName&#34;: &#34;REGIONS&#34;, &#x9;&#x9;&#x9;&#34;fieldType&#34;: &#34;DATASOURCEFIELD&#34; &#x9;&#x9;}, &#x9;&#x9;{ &#x9;&#x9;&#x9;&#34;fieldName&#34;: &#34;REGION_NAME&#34;, &#x9;&#x9;&#x9;&#34;isDeleted&#34;: &#34;false&#34;, &#x9;&#x9;&#x9;&#34;sourceName&#34;: &#34;REGIONS&#34;, &#x9;&#x9;&#x9;&#34;fieldType&#34;: &#34;DATASOURCEFIELD&#34; &#x9;&#x9;} &#x9;], &#x9;&#34;source&#34;: { &#x9;&#x9;&#34;sourceType&#34;: &#34;DATASOURCE&#34;, &#x9;&#x9;&#34;name&#34;: &#34;REGIONS&#34;, &#x9;&#x9;&#34;fields&#34;: [ &#x9;&#x9;&#x9;{ &#x9;&#x9;&#x9;&#x9;&#34;pcType&#34;: &#34;STRING&#34;, &#x9;&#x9;&#x9;&#x9;&#34;isDeleted&#34;: &#34;false&#34;, &#x9;&#x9;&#x9;&#x9;&#34;dataType&#34;: &#34;varchar&#34;, &#x9;&#x9;&#x9;&#x9;&#34;precision&#34;: &#34;255&#34;, &#x9;&#x9;&#x9;&#x9;&#34;name&#34;: &#34;REGION_ID&#34;, &#x9;&#x9;&#x9;&#x9;&#34;scale&#34;: &#34;0&#34;, &#x9;&#x9;&#x9;&#x9;&#34;isMetadataUpdated&#34;: &#34;false&#34;, &#x9;&#x9;&#x9;&#x9;&#34;order&#34;: &#34;0&#34; &#x9;&#x9;&#x9;}, &#x9;&#x9;&#x9;{ &#x9;&#x9;&#x9;&#x9;&#34;pcType&#34;: &#34;STRING&#34;, &#x9;&#x9;&#x9;&#x9;&#34;isDeleted&#34;: &#34;false&#34;, &#x9;&#x9;&#x9;&#x9;&#34;dataType&#34;: &#34;varchar&#34;, &#x9;&#x9;&#x9;&#x9;&#34;precision&#34;: &#34;28&#34;, &#x9;&#x9;&#x9;&#x9;&#34;name&#34;: &#34;REGION_NAME&#34;, &#x9;&#x9;&#x9;&#x9;&#34;scale&#34;: &#34;0&#34;, &#x9;&#x9;&#x9;&#x9;&#34;isMetadataUpdated&#34;: &#34;false&#34;, &#x9;&#x9;&#x9;&#x9;&#34;order&#34;: &#34;1&#34; &#x9;&#x9;&#x9;} &#x9;&#x9;] &#x9;}, &#x9;&#34;drillDownType&#34;: &#34;ON&#34;, &#x9;&#34;orgId&#34;: &#34;0100HB&#34;, &#x9;&#34;isFilterEnabled&#34;: &#34;false&#34; }"
+                                type="string"/>
+                     <parameter name="i_icSessionId"
+                                required="true"
+                                testWith="91mNFKr9S8WeCeuEJIHmK8"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{&#34;https://&#34;||fn:substring-before(fn:substring-after($icBaseServerUrlv3 , &#34;https://&#34;), &#34;.&#34;)||&#34;-dqprofile.dm-em.informaticacloud.com/profiling-service/api/v1/profile&#34;}"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                        <body>{$i_body}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetfrsProjectID"
+                       maxRedirects="100"
+                       name="GetfrsProjectID"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_ProjectName"
+                                nogen="true"
+                                required="true"
+                                testWith="Hackathon 2020"
+                                type="string"/>
+                     <parameter name="i_IICS_Server_URL"
+                                nogen="true"
+                                required="false"
+                                testWith="https://emw1.dm-em.informaticacloud.com/saas"
+                                type="string"/>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="g87HcxkxemIdhsFQygVPql"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{fn:substring-before($i_IICS_Server_URL , &#34;saas&#34;)||&#34;frs/v1/Projects&#34;}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="ProjectID" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-valueProjectID</option>
+                        </options>
+                        <xquery>{for $data in /root/value
+where $data/name=$i_ProjectName
+return
+&lt;value&gt;
+   &lt;id&gt;{$data/id/text()}&lt;/id&gt;
+   &lt;name&gt;{$data/name/text()}&lt;/name&gt;
+&lt;/value&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetfrsFolderID"
+                       maxRedirects="100"
+                       name="GetfrsFolderID"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_FolderName"
+                                nogen="true"
+                                required="false"
+                                testWith="test_marcel_5"
+                                type="string"/>
+                     <parameter name="i_IICS_Server_URL"
+                                nogen="true"
+                                required="false"
+                                testWith="https://emw1.dm-em.informaticacloud.com/saas"
+                                type="string"/>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="efpT6ypGXCLaZUqYGl3Q4y"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{fn:substring-before($i_IICS_Server_URL , &#34;saas&#34;)||&#34;frs/v1/Folders&#34;}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                           <header name="Content-Type">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_GetfrsFolderID" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-valueFoldersID</option>
+                        </options>
+                        <xquery>{for $data in /root/value
+where $data/name=$i_FolderName
+return
+&lt;value&gt;
+   &lt;id&gt;{$data/id/text()}&lt;/id&gt;
+   &lt;name&gt;{$data/name/text()}&lt;/name&gt;
+&lt;/value&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetConnectionID"
+                       maxRedirects="100"
+                       name="GetConnectionID"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_ConnectionName"
+                                required="false"
+                                testWith="Snowflake_HAT_ODBC"
+                                type="string"/>
+                     <parameter name="i_IICS_Server_URL"
+                                required="false"
+                                testWith="https://emw1.dm-em.informaticacloud.com/saas"
+                                type="string"/>
+                     <parameter name="i_icSessionId"
+                                required="false"
+                                testWith="8WT3C9SvzkycMMFhYOUnAD"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{fn:substring-before($i_IICS_Server_URL , &#34;saas&#34;)||&#34;frs/v1/Spaces('SYS')/Documents&#34;}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_GetConnectionID" type="string">
+                        <xquery>{for $data in /root/value
+where  $data/name=$i_ConnectionName and $data/documentType ='SAAS_CONNECTION'
+return
+&lt;value&gt;
+   &lt;id&gt;{$data/id/text()}&lt;/id&gt;
+   &lt;name&gt;{$data/name/text()}&lt;/name&gt;
+&lt;/value&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetProfileID"
+                       maxRedirects="100"
+                       name="GetProfileID"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="true"
+                                testWith="itLJCZ9TpiAfXlELuyYNqn"
+                                type="string"/>
+                     <parameter name="i_RequestFilter"
+                                nogen="true"
+                                required="true"
+                                testWith="{&#34;PO-TableFields&#34;:[{&#34;TableName&#34;:&#34;DEDUPED_CUSTOMERS&#34;,&#34;ConnectionID&#34;:&#34;0100HB0B00000000004M&#34;,&#34;frsFolderId&#34;:&#34;6UOEy7jEEYKcCOvB3zoCg9&#34;,&#34;frsProjectId&#34;:&#34;0aJ8zNh7K2yhR7fK7DzpQK&#34;,&#34;ProjectName&#34;:&#34;Hackathon 2020&#34;,&#34;federatedId&#34;:&#34;8X7XKEyc2oucxXJr5dLIiz&#34;,&#34;ProfileName&#34;:&#34;Profile_DEDUPED_CUSTOMERS&#34;,&#34;FolderName&#34;:&#34;ORCL_CDQ_DEMO_2021022213361051&#34;,&#34;orgId&#34;:&#34;0100HB&#34;},{&#34;TableName&#34;:&#34;PDO_CUSTOMERS&#34;,&#34;ConnectionID&#34;:&#34;0100HB0B00000000004M&#34;,&#34;frsFolderId&#34;:&#34;6UOEy7jEEYKcCOvB3zoCg9&#34;,&#34;frsProjectId&#34;:&#34;0aJ8zNh7K2yhR7fK7DzpQK&#34;,&#34;ProjectName&#34;:&#34;Hackathon 2020&#34;,&#34;federatedId&#34;:&#34;8X7XKEyc2oucxXJr5dLIiz&#34;,&#34;ProfileName&#34;:&#34;Profile_PDO_CUSTOMERS&#34;,&#34;FolderName&#34;:&#34;ORCL_CDQ_DEMO_2021022213361051&#34;,&#34;orgId&#34;:&#34;0100HB&#34;}]}"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{&#34;https://&#34;||fn:substring-before(fn:substring-after($icBaseServerUrlv3 , &#34;https://&#34;), &#34;.&#34;)||&#34;-dqprofile.dm-em.informaticacloud.com/profiling-service/api/v1/profile&#34;}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_GetProfileID" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-InGetProfileID</option>
+                        </options>
+                        <xquery>{let $i := &lt;root&gt;{util:parseJSON($i_RequestFilter)}&lt;/root&gt;
+for $k in $i/PO-TableFields, $d in /root//frsFolderId
+where $k/frsProjectId=$d/../frsProjectId and
+      $k/frsFolderId=$d/../frsFolderId and
+      $k/ProfileName=$d/../name
+return
+&lt;data&gt;
+      &lt;ConnectionID&gt;{$k/ConnectionID/text()}&lt;/ConnectionID&gt;
+      &lt;icSessionId&gt;{$k/icSessionId/text()}&lt;/icSessionId&gt;
+      &lt;TableName&gt;{$k/TableName/text()}&lt;/TableName&gt;
+      &lt;ProfileName&gt;{$k/ProfileName/text()}&lt;/ProfileName&gt;
+      &lt;frsProjectId&gt;{$k/frsProjectId/text()}&lt;/frsProjectId&gt;
+      &lt;frsFolderId&gt;{$k/frsFolderId/text()}&lt;/frsFolderId&gt;
+      &lt;federatedId&gt;{$k/federatedId/text()}&lt;/federatedId&gt;
+      &lt;orgId&gt;{$k/orgId/text()}&lt;/orgId&gt;
+      &lt;ProjectName&gt;{$k/ProjectName/text()}&lt;/ProjectName&gt;
+      &lt;FolderName&gt;{$k/FolderName/text()}&lt;/FolderName&gt;
+      &lt;p_ProfileID&gt;{$d/../id/text()}&lt;/p_ProfileID&gt;
+      &lt;p_frsFolderId&gt;{$d/../frsFolderId/text()}&lt;/p_frsFolderId&gt;
+      &lt;p_frsProjectId&gt;{$d/../frsProjectId/text()}&lt;/p_frsProjectId&gt; 
+&lt;/data&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="RunProfile"
+                       maxRedirects="100"
+                       name="RunProfile"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_ProfileID"
+                                nogen="true"
+                                required="true"
+                                testWith="c9ef6c12-3e1f-4c48-9103-0bb885d9b750"
+                                type="string"/>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="true"
+                                testWith="lb9dRmS8YGjc46vhYeI6YY"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{&#34;https://&#34;||fn:substring-before(fn:substring-after($icBaseServerUrlv3 , &#34;https://&#34;), &#34;.&#34;)||&#34;-dqprofile.dm-em.informaticacloud.com/profiling-service/api/v1/profile/&#34;|| $i_ProfileID ||&#34;/execute&#34;}"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                        <body generateUsing="JSON" preserveJsonStringFormatting="true"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_RunProfile" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-RunProfile</option>
+                        </options>
+                        <xquery>{for $d in /root//profileRunId
+return
+&lt;PO-RunProfile&gt;
+   &lt;profileRunId&gt;{$d/text()}&lt;/profileRunId&gt;
+   &lt;profileJobId&gt;{$d/../profileJobId/text()}&lt;/profileJobId&gt;
+   &lt;profileID&gt;{$i_ProfileID}&lt;/profileID&gt;
+&lt;/PO-RunProfile&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetMonitorProfile"
+                       maxRedirects="100"
+                       name="GetMonitorProfile"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="true"
+                                testWith="91mNFKr9S8WeCeuEJIHmK8"
+                                type="string"/>
+                     <parameter name="i_profileJobId"
+                                nogen="true"
+                                required="true"
+                                testWith="924b7021-855f-49da-8001-bcc26896fdad"
+                                type="string"/>
+                     <parameter name="i_profiledirectory"
+                                nogen="true"
+                                required="false"
+                                testWith="Hackathon 2020/Snowflake_HAT_ODBC_2021031811392821"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{&#34;https://&#34;||fn:substring-before(fn:substring-after($icBaseServerUrlv3 , &#34;https://&#34;), &#34;.&#34;)||&#34;-dqprofile.dm-em.informaticacloud.com/profiling-service/api/v1/job/&#34;|| $i_profileJobId}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="Content-Type">application/json</header>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_GetMonitorProfile" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-GetMonitorProfile</option>
+                        </options>
+                        <xquery>{for $d in //root
+return
+&lt;PO-GetMonitorProfile&gt;
+&lt;errorMessage&gt;{$d/errorMessage/text()}&lt;/errorMessage&gt;
+&lt;profilename&gt;{fn:substring-before($d/name/text(), " ")}&lt;/profilename&gt;
+&lt;profileJobId&gt;{$i_profileJobId}&lt;/profileJobId&gt;
+&lt;profiledirectory&gt;{$i_profiledirectory}&lt;/profiledirectory&gt;
+&lt;monitorDetaile&gt;
+{
+for $i in //root/jobSteps
+where $i/sequence="2"
+return
+	$i/dtmStats
+    
+ }&lt;/monitorDetaile&gt;
+&lt;/PO-GetMonitorProfile&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetScheduleID"
+                       maxRedirects="100"
+                       name="GetScheduleID"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="91mNFKr9S8WeCeuEJIHmK8"
+                                type="string"/>
+                     <parameter name="i_scheduleName"
+                                nogen="true"
+                                required="false"
+                                testWith="HAT_Profile_Schedule"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{fn:substring-before($icBaseServerUrlv3 , &#34;informaticacloud.com&#34;)||'informaticacloud.com/saas/public/core/v3/schedule'}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="INFA-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_GetSheduleID" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-GETScheduleID</option>
+                        </options>
+                        <xquery>{for $d in //root/schedules
+where $d/name=$i_scheduleName 
+return
+&lt;PO-GETScheduleID&gt;
+&lt;scheduleFederatedId&gt;{$d/scheduleFederatedId/text()}&lt;/scheduleFederatedId&gt;
+&lt;schedule_NAME&gt;{$d/name/text()}&lt;/schedule_NAME&gt;
+&lt;/PO-GETScheduleID&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetListProfileRunDetail"
+                       maxRedirects="100"
+                       name="GetListProfileRunDetail"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="profileId"
+                                required="false"
+                                testWith="0ce48a80-1888-4e21-bd81-2d0395966aa3"
+                                type="string"/>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="aENC1JVDPkTjM6D09nnHGe"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{&#34;https://&#34;||fn:substring-before(fn:substring-after($icBaseServerUrlv3 , &#34;https://&#34;), &#34;.&#34;)||&#34;-dqprofile.dm-em.informaticacloud.com/profiling-service/api/v1/runDetail&#34;}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_ListProfileRunDetail" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-ListProfileRunDetail</option>
+                        </options>
+                        <xquery>{&lt;PO-ListProfileRunDetail&gt;
+{
+ for $d in //root//profileId
+ order by $d/../runKey descending
+ return
+&lt;ProfileRunDetail&gt;
+   {$d/../*}
+&lt;/ProfileRunDetail&gt;
+
+}
+&lt;/PO-ListProfileRunDetail&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="DeleteProfileRuns"
+                       maxRedirects="100"
+                       name="DeleteProfileRuns"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="profileId"
+                                required="false"
+                                testWith="0ce48a80-1888-4e21-bd81-2d0395966aa3"
+                                type="string"/>
+                     <parameter name="runDetailIds"
+                                required="false"
+                                testWith="b271c3cd-493d-491c-be09-b5aa17258ef3"
+                                type="string"/>
+                     <parameter name="i_icSessionId"
+                                required="false"
+                                testWith="1XTnquIBQA8jYg2DhpMukD"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{&#34;https://&#34;||fn:substring-before(fn:substring-after($icBaseServerUrlv3 , &#34;https://&#34;), &#34;.&#34;)||&#34;-dqprofile.dm-em.informaticacloud.com/profiling-service/api/v1/runDetail&#34;}"
+                                        verb="DELETE">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_DeleteProfileRuns" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-DeleteProfileRuns</option>
+                        </options>
+                        <xquery>{for $d in //root//runDetailStatus
+return
+&lt;PO-DeleteProfileRuns&gt;
+{$d/../*}
+&lt;/PO-DeleteProfileRuns&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetFolderList"
+                       maxRedirects="100"
+                       name="GetFolderList"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="false"
+                                testWith="g87HcxkxemIdhsFQygVPql"
+                                type="string"/>
+                     <parameter name="parentName"
+                                required="false"
+                                testWith="Hackathon 2020"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://emw1.dm-em.informaticacloud.com/frs/v1/Folders"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category=""
+                       failOnError="true"
+                       forSearch="false"
+                       label="GetProfileList"
+                       maxRedirects="100"
+                       name="GetProfileList"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description/>
+                  <input>
+                     <parameter name="i_icSessionId"
+                                nogen="true"
+                                required="true"
+                                testWith="aENC1JVDPkTjM6D09nnHGe"
+                                type="string"/>
+                     <parameter name="frsProjectId"
+                                nogen="true"
+                                required="true"
+                                testWith="0aJ8zNh7K2yhR7fK7DzpQK"
+                                type="string"/>
+                     <parameter name="frsFolderId"
+                                nogen="true"
+                                required="true"
+                                testWith="6Iduukl5YuVhK72pe4GUSW"
+                                type="string"/>
+                     <parameter name="folderName"
+                                nogen="true"
+                                required="true"
+                                testWith="Snowflake_HAT_ODBC_2021030717533745"
+                                type="string"/>
+                     <parameter name="projectName"
+                                nogen="true"
+                                required="true"
+                                testWith="Hackathon 2020"
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="{&#34;https://&#34;||fn:substring-before(fn:substring-after($icBaseServerUrlv3 , &#34;https://&#34;), &#34;.&#34;)||&#34;-dqprofile.dm-em.informaticacloud.com/profiling-service/api/v1/profile&#34;}"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Accept">application/json</header>
+                           <header name="IDS-SESSION-ID">{$i_icSessionId}</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="" name="o_GetProfileList" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-GetProfileList</option>
+                        </options>
+                        <xquery>{for $d in //root//id
+where $d/../frsProjectId=$frsProjectId  and 
+$d/../frsFolderId=$frsFolderId
+return
+&lt;PO-GetProfileList&gt;
+   &lt;frsFolderId&gt;{$d/../frsFolderId/text()}&lt;/frsFolderId&gt;
+   &lt;frsProjectId&gt;{$d/../frsProjectId/text()}&lt;/frsProjectId&gt;
+   &lt;profileName&gt;{$d/../name/text()}&lt;/profileName&gt;
+   &lt;federatedId&gt;{$d/../connectionId/text()}&lt;/federatedId&gt;
+   &lt;profileID&gt;{$d/../id/text()}&lt;/profileID&gt;
+   &lt;folderName&gt;{$folderName }&lt;/folderName&gt;
+   &lt;projectName&gt;{$projectName }&lt;/projectName&gt;
+&lt;/PO-GetProfileList&gt;}</xquery>
+                     </field>
+                  </output>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-ProfilingTabFiledss">
+                  <description/>
+                  <detail>
+                     <field name="name" type="string"/>
+                     <field name="dataType" type="string"/>
+                     <field name="precision" type="string"/>
+                     <field name="scale" type="string"/>
+                     <field name="pcType" type="string"/>
+                     <field name="order" type="string"/>
+                     <field name="isDeleted" type="string"/>
+                     <field name="isMetadataUpdated" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-ProfileableFields">
+                  <description/>
+                  <detail>
+                     <field name="isDeleted" type="string"/>
+                     <field name="sourceName" type="string"/>
+                     <field name="fieldName" type="string"/>
+                     <field name="fieldType" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-samplingOptions">
+                  <description/>
+                  <detail>
+                     <field name="id" type="string"/>
+                     <field name="rows" type="string"/>
+                     <field name="samplingType" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-ProfilingSource">
+                  <description/>
+                  <detail>
+                     <field name="name" type="string"/>
+                     <field name="fields" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-ProfilingTabFiledss</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="sourceType" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-ProfilingStructure">
+                  <description/>
+                  <detail>
+                     <field name="name" type="string"/>
+                     <field name="orgId" type="string"/>
+                     <field name="description" type="string"/>
+                     <field name="frsProjectId" type="string"/>
+                     <field name="connectionId" type="string"/>
+                     <field name="isFilterEnabled" type="string"/>
+                     <field name="frsFolderId" type="string"/>
+                     <field name="source" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-ProfilingSource</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="profileableFields" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-ProfileableFields</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="samplingOptions" type="reference">
+                        <options>
+                           <option name="referenceTo">PO-samplingOptions</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="drillDownType" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-valueProjectID">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="name" type="string"/>
+                     <field name="id" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-valueFoldersID">
+                  <description/>
+                  <detail>
+                     <field name="name" type="string"/>
+                     <field name="id" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-ProjectFolder">
+                  <description/>
+                  <detail>
+                     <field name="FolderID" type="string"/>
+                     <field name="FolderName" type="string"/>
+                     <field name="ConnectionName" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-InGetProfileID">
+                  <description/>
+                  <detail>
+                     <field name="ConnectionID" type="string"/>
+                     <field name="icSessionId" type="string"/>
+                     <field name="TableName" type="string"/>
+                     <field name="ProfileName" type="string"/>
+                     <field name="Profiledescription" type="string"/>
+                     <field name="frsProjectId" type="string"/>
+                     <field name="frsFolderId" type="string"/>
+                     <field name="federatedId" type="string"/>
+                     <field name="orgId" type="string"/>
+                     <field name="ProjectName" type="string"/>
+                     <field name="FolderName" type="string"/>
+                     <field name="p_ProfileID" type="string"/>
+                     <field name="p_frsFolderId" type="string"/>
+                     <field name="p_frsProjectId" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-RunProfile">
+                  <description/>
+                  <detail>
+                     <field name="profileRunId" type="string"/>
+                     <field name="profileJobId" type="string"/>
+                     <field name="profileID" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-GetMonitorProfile">
+                  <description/>
+                  <detail>
+                     <field name="errorMessage" type="string"/>
+                     <field name="profilename" type="string"/>
+                     <field name="profileJobId" type="string"/>
+                     <field name="monitorDetaile" type="string"/>
+                     <field name="profiledirectory" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-GETScheduleID">
+                  <description/>
+                  <detail>
+                     <field name="scheduleFederatedId" type="string"/>
+                     <field name="schedule_NAME" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-ListProfileRunDetail">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="emptyName" type="objectlist">
+                        <options>
+                           <option name="referenceTo">PO-ProfileRunDetail</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-ProfileRunDetail">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="runDetailStatus" type="string"/>
+                     <field name="samplingType" type="string"/>
+                     <field name="createdByName" type="string"/>
+                     <field name="profiledFields" type="objectlist">
+                        <options>
+                           <option name="referenceTo">profiledFields</option>
+                           <option name="relationshipName">Child</option>
+                        </options>
+                     </field>
+                     <field name="numberOfRules" type="string"/>
+                     <field name="runCostInMB" type="string"/>
+                     <field name="filterName" type="string"/>
+                     <field name="rowsProcessed" type="string"/>
+                     <field name="numberOfMappletColumns" type="string"/>
+                     <field name="isDetectOutlier" type="string"/>
+                     <field name="numberOfDSColumns" type="string"/>
+                     <field name="executionTime" type="string"/>
+                     <field name="jobId" type="string"/>
+                     <field name="numberOfColumns" type="string"/>
+                     <field name="createdBy" type="string"/>
+                     <field name="profileId" type="string"/>
+                     <field name="runKey" type="string"/>
+                     <field name="createdTime" type="string"/>
+                     <field name="startTime" type="string"/>
+                     <field name="id" type="string"/>
+                     <field name="endTime" type="string"/>
+                     <field name="isFilterEnabled" type="string"/>
+                     <field name="samplingRows" type="string"/>
+                     <field name="status" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="profiledFields">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="fieldName" type="string"/>
+                     <field name="isDeleted" type="boolean"/>
+                     <field name="id" type="string"/>
+                     <field name="sourceName" type="string"/>
+                     <field name="columnKey" type="int"/>
+                     <field name="fieldType" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-DeleteProfileRuns">
+                  <description>An automatically generated process object</description>
+                  <detail>
+                     <field name="runDetailStatus" type="string"/>
+                     <field name="samplingType" type="string"/>
+                     <field name="createdByName" type="string"/>
+                     <field name="numberOfRules" type="string"/>
+                     <field name="runCostInMB" type="string"/>
+                     <field name="filterName" type="string"/>
+                     <field name="rowsProcessed" type="string"/>
+                     <field name="numberOfMappletColumns" type="string"/>
+                     <field name="isDetectOutlier" type="string"/>
+                     <field name="numberOfDSColumns" type="string"/>
+                     <field name="executionTime" type="string"/>
+                     <field name="jobId" type="string"/>
+                     <field name="numberOfColumns" type="string"/>
+                     <field name="createdBy" type="string"/>
+                     <field name="profileId" type="string"/>
+                     <field name="runKey" type="string"/>
+                     <field name="createdTime" type="string"/>
+                     <field name="startTime" type="string"/>
+                     <field name="id" type="string"/>
+                     <field name="endTime" type="string"/>
+                     <field name="isFilterEnabled" type="string"/>
+                     <field name="samplingRows" type="string"/>
+                     <field name="status" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="PO-GetProfileList">
+                  <description/>
+                  <detail>
+                     <field name="frsFolderId" type="string"/>
+                     <field name="frsProjectId" type="string"/>
+                     <field name="profileName" type="string"/>
+                     <field name="federatedId" type="string"/>
+                     <field name="profileID" type="string"/>
+                     <field name="folderName" type="string"/>
+                     <field name="projectName" type="string"/>
+                  </detail>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>26UWAPHDz9fgm0BP6aZPGE</types1:GUID>
+      <types1:DisplayName>SC-DataProfiling</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-03-26T14:28:34.497Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

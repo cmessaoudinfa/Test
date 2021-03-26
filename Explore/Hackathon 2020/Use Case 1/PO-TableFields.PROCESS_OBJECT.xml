@@ -1,0 +1,48 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>VbeOm6S6fPAreFR-gt-274877-2021-02-22T08:37:55.768Z::po.xml</types1:EntryId>
+      <types1:Name>PO-TableFields</types1:Name>
+      <types1:ParentFlowIds>chspiRASmvD4teI-gt-149756-2021-02-22T14:38:04.403Z::pd.xml,GD4ARW8UBM7zsZv-gt-264377-2021-02-22T08:14:55.524Z::pd.xml,W9VYxWPQE8jIw8j-gt-13683894-2021-02-17T09:24:53.787Z::pd.xml,XLi36ln6lRuImXy-gt-14180736-2021-03-19T11:08:11.803Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+processobject</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>mbamba-eu@eu-cdp.informatica.demo</types1:CreatedBy>
+      <types1:CreationDate>2021-02-22T08:37:56Z</types1:CreationDate>
+      <types1:ModifiedBy>mbamba-eu@eu-cdp.informatica.demo</types1:ModifiedBy>
+      <types1:ModificationDate>2021-02-22T11:35:34Z</types1:ModificationDate>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                        displayName="PO-TableFields"
+                        isByCopy="true"
+                        name="PO-TableFields">
+            <description/>
+            <tags/>
+            <detail>
+               <field label="ConnectionID" name="po_ConnectionID" type="string"/>
+               <field label="icSessionId" name="po_icSessionId" type="string"/>
+               <field label="TableName" name="po_TableName" type="string"/>
+               <field label="ProfileName" name="po_ProfileName" type="string"/>
+               <field label="Profiledescription"
+                      name="po_Profiledescription"
+                      type="string"/>
+               <field label="frsProjectId" name="po_frsProjectId" type="string"/>
+               <field label="frsFolderId" name="po_frsFolderId" type="string"/>
+               <field label="federatedId" name="po_federatedId" type="string"/>
+               <field label="orgId" name="po_orgId" type="string"/>
+               <field label="ProjectName" name="po_ProjectName" type="string"/>
+               <field label="FolderName" name="po_FolderName" type="string"/>
+            </detail>
+         </processObject>
+      </types1:Entry>
+      <types1:GUID>04Ih07Q3NbEi23zI1m4Iqm</types1:GUID>
+      <types1:DisplayName>PO-TableFields</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-03-26T14:28:34.485Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,308 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>XLi36ln6lRuImXy-gt-14180736-2021-03-19T11:08:11.803Z::pd.xml</types1:EntryId>
+      <types1:Name>Process-RunDataProfile_-_Copy_1</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>amsrivastava-eu</types1:CreatedBy>
+      <types1:CreationDate>2021-03-19T11:08:12Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="Process-RunDataProfile - Copy 1"
+                  name="Process-RunDataProfile_-_Copy_1"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_DataProfileList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:PO-TableFields</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">04Ih07Q3NbEi23zI1m4Iqm</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="o_InForSendEmail" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="o_ProfileRunFaultInfoList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+            </output>
+            <tempFields>
+               <field description="" name="t_INGetProfileID" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:PO-TableFields</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                     <option name="guid">04Ih07Q3NbEi23zI1m4Iqm</option>
+                  </options>
+               </field>
+               <field description="" name="t_GetProfileIDList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="t_GetProfileIDOne" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="t_RunProfileOutput" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="t_ProfileRunFaultInfoList" type="objectlist">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option hide="true" name="multiSelect">true</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+               <field description="" name="t_ProfileRunFaultInfoOne" type="reference">
+                  <options>
+                     <option name="referenceTo">$po:$any</option>
+                     <option name="required">false</option>
+                     <option name="isCopy">true</option>
+                  </options>
+               </field>
+            </tempFields>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="verbose">
+               <rest>
+                  <allowAnonymousAccess/>
+                  <wholePayload inputWholePayload="true"/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="klhtqdfj" targetId="klhtqdfi"/>
+               </start>
+               <assignment id="klhtqdfi">
+                  <title>Assignment to t_INGetProfileID</title>
+                  <operation source="formula" to="temp.t_INGetProfileID">
+                     <expression language="XQuery">for $d in $input.in_DataProfileList
+return
+&lt;PO-TableFields&gt;
+   &lt;ConnectionID&gt;{$d/po_ConnectionID/text()}&lt;/ConnectionID&gt;
+   &lt;TableName&gt;{$d/po_TableName/text()}&lt;/TableName&gt;
+   &lt;ProfileName&gt;{$d/po_ProfileName/text()}&lt;/ProfileName&gt;
+   &lt;frsProjectId&gt;{$d/po_frsProjectId/text()}&lt;/frsProjectId&gt;
+   &lt;frsFolderId&gt;{$d/po_frsFolderId/text()}&lt;/frsFolderId&gt;
+   &lt;federatedId&gt;{$d/po_federatedId/text()}&lt;/federatedId&gt;
+   &lt;orgId&gt;{$d/po_orgId/text()}&lt;/orgId&gt;
+   &lt;ProjectName&gt;{$d/po_ProjectName/text()}&lt;/ProjectName&gt;
+   &lt;FolderName&gt;{$d/po_FolderName/text()}&lt;/FolderName&gt;
+&lt;/PO-TableFields&gt;
+</expression>
+                  </operation>
+                  <link id="klhtqdgc" targetId="klhtqdgb"/>
+               </assignment>
+               <assignment id="klhtqdie">
+                  <title>Assignment to t_GetProfileIDList</title>
+                  <operation source="formula" to="temp.t_GetProfileIDList">
+                     <expression language="XQuery">$output.o_GetProfileID </expression>
+                  </operation>
+                  <link id="kljgzdh4" targetId="klhwhxgj"/>
+               </assignment>
+               <assignment id="klhwhxgj">
+                  <title>Assignment to t_GetProfileIDOne, t_GetProfileIDList</title>
+                  <operation source="formula" to="temp.t_GetProfileIDOne">
+                     <expression language="XQuery">list:head($temp.t_GetProfileIDList )</expression>
+                  </operation>
+                  <operation source="formula" to="temp.t_GetProfileIDList">
+                     <expression language="XQuery">list:tail($temp.t_GetProfileIDList)</expression>
+                  </operation>
+                  <link id="klhwhxhi" targetId="klhwhxhh"/>
+               </assignment>
+               <service id="klhtqdgb">
+                  <title>LoginV2</title>
+                  <serviceName>CN-DataProfiling:LoginV2</serviceName>
+                  <serviceGUID>6KXYotYjsauetRx9S9WsIY</serviceGUID>
+                  <serviceInput/>
+                  <link id="klhtqdgd" targetId="klgoqpdy"/>
+               </service>
+               <service id="klgoqpdy">
+                  <title>GetProfileID</title>
+                  <serviceName>CN-DataProfiling:GetProfileID</serviceName>
+                  <serviceGUID>6KXYotYjsauetRx9S9WsIY</serviceGUID>
+                  <serviceInput>
+                     <parameter name="i_icSessionId" source="field" updatable="true">output.IICS_Session_ID</parameter>
+                     <parameter name="i_RequestFilter" source="formula">
+                        <expression language="XQuery">util:toJSON($temp.t_INGetProfileID )</expression>
+                     </parameter>
+                  </serviceInput>
+                  <link id="klhtqdif" targetId="klhtqdie"/>
+               </service>
+               <container id="klhwhxhh" type="exclusive">
+                  <title>t_GetProfileIDOne</title>
+                  <flow id="klhwhxhl">
+                     <eventContainer id="klhwhxhw">
+                        <service id="klhwhxhz">
+                           <title>RunProfile</title>
+                           <serviceName>CN-DataProfiling:RunProfile</serviceName>
+                           <serviceGUID>6KXYotYjsauetRx9S9WsIY</serviceGUID>
+                           <serviceInput>
+                              <parameter name="i_ProfileID" source="formula">
+                                 <expression language="XQuery">$temp.t_GetProfileIDOne/p_ProfileID</expression>
+                              </parameter>
+                              <parameter name="i_icSessionId" source="field" updatable="true">output.IICS_Session_ID</parameter>
+                           </serviceInput>
+                        </service>
+                        <flow id="klhwhxhx">
+                           <assignment id="kli5ze8c">
+                              <title>Assignment to t_RunProfileOutput</title>
+                              <operation source="formula" to="temp.t_RunProfileOutput">
+                                 <expression language="XQuery">list:append($temp.t_RunProfileOutput , $output.o_RunProfile )</expression>
+                              </operation>
+                              <link id="kmf58jjv" targetId="kmf58jju"/>
+                           </assignment>
+                           <wait id="kmf58jju">
+                              <title>Wait 1</title>
+                              <duration source="formula">
+                                 <function name="duration_expression">
+                                    <arg name="value">4</arg>
+                                    <arg name="scale">S</arg>
+                                    <arg name="businessDays"/>
+                                 </function>
+                              </duration>
+                              <link id="kmf58jjw" targetId="klhwhxig"/>
+                           </wait>
+                           <jumpTo id="klhwhxig">
+                              <link id="klhwhxih" targetId="klhwhxgj"/>
+                           </jumpTo>
+                        </flow>
+                        <flow id="klhwhxhy">
+                           <assignment id="klzgrvo0">
+                              <title>Assignment to t_ProfileRunFaultInfoOne, t_ProfileRunFaultInfoList</title>
+                              <operation source="formula" to="temp.t_ProfileRunFaultInfoOne">
+                                 <expression language="XQuery">for $d in $output.faultInfo 
+return
+&lt;poFaultDetail&gt;
+   &lt;ProfileName&gt;{$temp.t_GetProfileIDOne/ProfileName}&lt;/ProfileName&gt;
+   &lt;FaultDescription&gt;Code:{$d/Code/text()} Reason:{$d/Reason/text()}&lt;/FaultDescription&gt;
+   &lt;Exception&gt;{$d/Detail/text()}&lt;/Exception&gt;
+&lt;/poFaultDetail&gt;</expression>
+                              </operation>
+                              <operation source="formula" to="temp.t_ProfileRunFaultInfoList">
+                                 <expression language="XQuery">list:append($temp.t_ProfileRunFaultInfoList , $temp.t_ProfileRunFaultInfoOne )</expression>
+                              </operation>
+                              <link id="kmf58jk0" targetId="kmf58jjz"/>
+                           </assignment>
+                           <wait id="kmf58jjz">
+                              <title>Wait 2</title>
+                              <duration source="formula">
+                                 <function name="duration_expression">
+                                    <arg name="value">4</arg>
+                                    <arg name="scale">S</arg>
+                                    <arg name="businessDays"/>
+                                 </function>
+                              </duration>
+                              <link id="kmf58jk1" targetId="klhwhxin"/>
+                           </wait>
+                           <jumpTo id="klhwhxin">
+                              <link id="klhwhxio" targetId="klhwhxgj"/>
+                           </jumpTo>
+                        </flow>
+                        <link id="klhwhxi0" targetId="klhwhxhx" type="containerLink"/>
+                        <events>
+                           <catch faultField="faultInfo" id="klhwhxgy" interrupting="true">
+                              <link id="klhwhxi1" targetId="klhwhxhy" type="containerLink"/>
+                           </catch>
+                        </events>
+                     </eventContainer>
+                  </flow>
+                  <flow id="klhwhxho">
+                     <assignment id="kli6b1me">
+                        <title>Assignment to o_InForSendEmail, o_ProfileRunFaultInfoList</title>
+                        <operation source="formula" to="output.o_InForSendEmail">
+                           <expression language="XQuery">for $d in $temp.t_RunProfileOutput, $k in $output.o_GetProfileID 
+where $d/profileID=$k/p_ProfileID
+return
+ &lt;PO-TableFields&gt;
+   &lt;ConnectionID&gt;{$k/ConnectionID/text()}&lt;/ConnectionID&gt;
+   &lt;TableName&gt;{$k/TableName/text()}&lt;/TableName&gt;
+   &lt;ProfileName&gt;{$k/ProfileName/text()}&lt;/ProfileName&gt;
+   &lt;frsProjectId&gt;{$k/frsProjectId/text()}&lt;/frsProjectId&gt;
+   &lt;frsFolderId&gt;{$k/frsFolderId/text()}&lt;/frsFolderId&gt;
+   &lt;federatedId&gt;{$k/federatedId/text()}&lt;/federatedId&gt;
+   &lt;ProjectName&gt;{$k/ProjectName/text()}&lt;/ProjectName&gt;
+   &lt;FolderName&gt;{$k/FolderName/text()}&lt;/FolderName&gt;
+   &lt;profileRunId&gt;{$d/profileRunId/text()}&lt;/profileRunId&gt;
+   &lt;profileJobId&gt;{$d/profileJobId/text()}&lt;/profileJobId&gt;
+   &lt;profileID&gt;{$d/profileID/text()}&lt;/profileID&gt;
+&lt;/PO-TableFields&gt;
+</expression>
+                        </operation>
+                        <operation source="field" to="output.o_ProfileRunFaultInfoList">temp.t_ProfileRunFaultInfoList</operation>
+                        <link id="klzgrvoo" targetId="klzgrvon"/>
+                     </assignment>
+                     <service id="klzgrvon">
+                        <title>Logout</title>
+                        <serviceName>CN-DataProfiling:Logout</serviceName>
+                        <serviceGUID>6KXYotYjsauetRx9S9WsIY</serviceGUID>
+                        <serviceInput>
+                           <parameter name="icSessionId" source="field" updatable="true">output.IICS_Session_ID</parameter>
+                        </serviceInput>
+                        <link id="klzgrvop" targetId="klhwhxj0"/>
+                     </service>
+                     <end id="klhwhxj0"/>
+                  </flow>
+                  <link id="klhwhxhk" targetId="klhwhxhl" type="containerLink">
+                     <condition source="formula">
+                        <function name="set">
+                           <arg name="field">{$temp.t_GetProfileIDOne}</arg>
+                        </function>
+                     </condition>
+                  </link>
+                  <link id="klhwhxhn" targetId="klhwhxho" type="containerLink">
+                     <condition source="formula">
+                        <function name="unset">
+                           <arg name="field">{$temp.t_GetProfileIDOne}</arg>
+                        </function>
+                     </condition>
+                  </link>
+               </container>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>15jGbMr37EQjY11iiI1LUu</types1:GUID>
+      <types1:DisplayName>Process-RunDataProfile - Copy 1</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-03-26T14:28:34.669Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

@@ -1,0 +1,24 @@
+[
+   {
+      "objectGuid": "04Ih07Q3NbEi23zI1m4Iqm",
+      "objectName": "PO-TableFields",
+      "objectType": "PROCESS_OBJECT",
+      "path": "/Explore/Hackathon 2020/Use Case 1",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "VbeOm6S6fPAreFR-gt-274877-2021-02-22T08:37:55.768Z::po.xml"
+         }
+      }
+   }
+]
