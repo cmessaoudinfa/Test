@@ -1,0 +1,24 @@
+[
+   {
+      "objectGuid": "43IZOO2Y3yVlmm8h9dBzKw",
+      "objectName": "HelloBuddy",
+      "objectType": "PROCESS",
+      "path": "/Explore/Workspaces/cmessaud",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "T9DoWn2sqeErhNz-gt-4560296-2021-02-05T08:52:11.741Z::pd.xml"
+         }
+      }
+   }
+]

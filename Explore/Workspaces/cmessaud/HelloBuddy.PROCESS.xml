@@ -1,0 +1,71 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>T9DoWn2sqeErhNz-gt-4560296-2021-02-05T08:52:11.741Z::pd.xml</types1:EntryId>
+      <types1:Name>HelloBuddy</types1:Name>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.anonymous</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>chihab-eu</types1:CreatedBy>
+      <types1:CreationDate>2021-02-05T08:52:12Z</types1:CreationDate>
+      <types1:ModifiedBy>chihab-eu</types1:ModifiedBy>
+      <types1:ModificationDate>2021-02-05T08:52:45Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>chihab-eu</types1:PublishedBy>
+      <types1:PublicationDate>2021-02-05T08:52:50Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/spi.HelloBuddy/HelloBuddy.pd.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="HelloBuddy"
+                  name="HelloBuddy"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.anonymous</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="in_name" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <output>
+               <field description="" name="out_greeting" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </field>
+            </output>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="none">
+               <rest>
+                  <allowAnonymousAccess/>
+               </rest>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kks1sxyd" targetId="kks1sxyc"/>
+               </start>
+               <assignment id="kks1sxyc">
+                  <title>Assignment to out_greeting</title>
+                  <operation source="formula" to="output.out_greeting">
+                     <expression language="XQuery">'Hello ' || $input.in_name </expression>
+                  </operation>
+                  <link id="kks1sxye" targetId="c"/>
+               </assignment>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>43IZOO2Y3yVlmm8h9dBzKw</types1:GUID>
+      <types1:DisplayName>HelloBuddy</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-04-01T13:29:51.405Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
