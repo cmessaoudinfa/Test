@@ -1,0 +1,53 @@
+[
+   {
+      "objectGuid": "5JQj2s8VOKRk5UkiKtOC6O",
+      "objectName": "Taskflow1",
+      "objectType": "TASKFLOW",
+      "path": "/Explore/Manuchar",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [
+            "46LYNv2bTpOi4Bf5zzEOeD"
+         ],
+         "repoInfo": {
+            "repoHandle": "lCYAOTMneBjrabc-gt-6339352-2021-06-22T11:25:51.186Z::tf.xml"
+         }
+      }
+   },
+   {
+      "objectGuid": "46LYNv2bTpOi4Bf5zzEOeD",
+      "objectName": "mt_Load_invoice",
+      "objectType": "MTT",
+      "path": "/Explore/Manuchar",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "",
+            "documentState": "INVALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "01059I0Z00000000002M"
+         }
+      }
+   }
+]

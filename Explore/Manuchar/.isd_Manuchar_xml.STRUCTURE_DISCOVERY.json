@@ -1,0 +1,29 @@
+[
+   {
+      "objectGuid": "7elwaD9YDmAcHSMFNH9dmq",
+      "objectName": "isd_Manuchar_xml",
+      "objectType": "STRUCTURE_DISCOVERY",
+      "path": "/Explore/Manuchar",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "01059I3000000000000H"
+         }
+      }
+   }
+]

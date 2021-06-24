@@ -1,0 +1,58 @@
+[
+   {
+      "objectGuid": "14FxL7gP0xbb4ymAYPp90Q",
+      "objectName": "manuchar_ff",
+      "objectType": "Connection",
+      "path": "/SYS",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": null,
+            "documentState": "COMPLETE"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [
+            "8WzQKycSTFVjhDheWuxLOq"
+         ],
+         "repoInfo": {
+            "repoHandle": "01059I0B000000000025"
+         }
+      }
+   },
+   {
+      "objectGuid": "8WzQKycSTFVjhDheWuxLOq",
+      "objectName": "Sideways.local",
+      "objectType": "AgentGroup",
+      "path": "/SYS",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": null,
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "01059I25000000000009"
+         }
+      }
+   }
+]

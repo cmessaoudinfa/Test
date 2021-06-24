@@ -1,0 +1,58 @@
+[
+   {
+      "objectGuid": "emKY6oD9M8VkqwV7ap8OEO",
+      "objectName": "sp-m-ff-to-ff",
+      "objectType": "DTEMPLATE",
+      "path": "/Explore/Manuchar",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [
+            "14FxL7gP0xbb4ymAYPp90Q"
+         ],
+         "repoInfo": {
+            "repoHandle": "01059I17000000000030"
+         }
+      }
+   },
+   {
+      "objectGuid": "14FxL7gP0xbb4ymAYPp90Q",
+      "objectName": "manuchar_ff",
+      "objectType": "Connection",
+      "path": "/SYS",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": null,
+            "documentState": "COMPLETE"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "01059I0B000000000025"
+         }
+      }
+   }
+]

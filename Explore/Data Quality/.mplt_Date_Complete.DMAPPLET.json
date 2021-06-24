@@ -1,0 +1,53 @@
+[
+   {
+      "objectGuid": "hTTE3whQSAdeQ7ijbouQ8e",
+      "objectName": "mplt_Date_Complete",
+      "objectType": "DMAPPLET",
+      "path": "/Explore/Data Quality",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "This mapplet checks input date string is not null and if it matches any user defined default values.  \nIt does not validate the input string as a date.\n\nTags: Accuracy",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [
+            "7LRXvgAeb8Ld90LdtVQWOQ"
+         ],
+         "repoInfo": {
+            "repoHandle": "01059I4000000000001Z"
+         }
+      }
+   },
+   {
+      "objectGuid": "7LRXvgAeb8Ld90LdtVQWOQ",
+      "objectName": "c_Label_Default_Date_Patterns",
+      "objectType": "CLEANSE",
+      "path": "/Explore/Data Quality",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "Binary",
+            "description": "Replaces dictionary match for default date patterns with the term 'Valid'.",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [],
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "7LRXvgAeb8Ld90LdtVQWOQ"
+         }
+      }
+   }
+]

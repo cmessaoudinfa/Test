@@ -1,0 +1,48 @@
+[
+   {
+      "objectGuid": "2mmYHT3tItsgBMo9elQf4Z",
+      "objectName": "c_validation_domain",
+      "objectType": "CLEANSE",
+      "path": "/Explore/Data Quality",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "Binary",
+            "description": "Validates the domain of an email",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [],
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [
+            "1sNKlwX3R8Bj36bZamL5O9"
+         ],
+         "repoInfo": {
+            "repoHandle": "2mmYHT3tItsgBMo9elQf4Z"
+         }
+      }
+   },
+   {
+      "objectGuid": "1sNKlwX3R8Bj36bZamL5O9",
+      "objectName": "domain_names_infa",
+      "objectType": "DICTIONARY",
+      "path": "/Explore/Data Quality",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "Binary",
+            "description": "This reference table contains a list of domain names.",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [],
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "1sNKlwX3R8Bj36bZamL5O9"
+         }
+      }
+   }
+]

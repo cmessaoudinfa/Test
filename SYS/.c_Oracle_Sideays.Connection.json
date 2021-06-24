@@ -1,0 +1,58 @@
+[
+   {
+      "objectGuid": "5V2iga15jasfMlRqeShSeG",
+      "objectName": "c_Oracle_Sideays",
+      "objectType": "Connection",
+      "path": "/SYS",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": null,
+            "documentState": "COMPLETE"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [
+            "8WzQKycSTFVjhDheWuxLOq"
+         ],
+         "repoInfo": {
+            "repoHandle": "01059I0B00000000001I"
+         }
+      }
+   },
+   {
+      "objectGuid": "8WzQKycSTFVjhDheWuxLOq",
+      "objectName": "Sideways.local",
+      "objectType": "AgentGroup",
+      "path": "/SYS",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": null,
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "01059I25000000000009"
+         }
+      }
+   }
+]

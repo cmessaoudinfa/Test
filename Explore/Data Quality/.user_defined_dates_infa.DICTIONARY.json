@@ -1,0 +1,24 @@
+[
+   {
+      "objectGuid": "2yMfd3BZ5kGfkeshc7CYaA",
+      "objectName": "user_defined_dates_infa",
+      "objectType": "DICTIONARY",
+      "path": "/Explore/Data Quality",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "Binary",
+            "description": "This reference table has defined date values",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [],
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "2yMfd3BZ5kGfkeshc7CYaA"
+         }
+      }
+   }
+]

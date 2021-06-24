@@ -1,0 +1,412 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>kgbdoPVm5Y6tMFy-gt-319984-2021-06-23T08:19:11.76Z::svc.xml</types1:EntryId>
+      <types1:Name>ActodersService</types1:Name>
+      <types1:ParentFlowIds>FMP5gjn9OQcjoYs-gt-862099-2021-06-24T06:16:26.506Z::conn.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+businesssconnector</types1:MimeType>
+      <types1:Description>This service is located at [https://emw1-cai.dm-em.informaticacloud.com/active-bpel/odata/v4/ACTOrder/](https://emw1-cai.dm-em.informaticacloud.com/active-bpel/odata/v4/ACTOrder/)</types1:Description>
+      <types1:AppliesTo/>
+      <types1:Tags/>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>theijst@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2021-06-23T08:19:12Z</types1:CreationDate>
+      <types1:ModifiedBy>theijst@informatica.com</types1:ModifiedBy>
+      <types1:ModificationDate>2021-06-23T08:21:21Z</types1:ModificationDate>
+      <types1:PublicationStatus>published</types1:PublicationStatus>
+      <types1:PublishedBy>theijst@informatica.com</types1:PublishedBy>
+      <types1:PublicationDate>2021-06-24T06:14:22Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connector/ActodersService/ActodersService_svcDef.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <businessConnector xmlns="http://schemas.informatica.com/socrates/data-services/2014/05/business-connector-model.xsd"
+                            agentOnly="false"
+                            debug="false"
+                            displayName="ActodersService"
+                            label=""
+                            name="ActodersService"
+                            uuid="74cf4fc3-3a1e-4323-90c6-65437b4d1487">
+            <description>This service is located at [https://emw1-cai.dm-em.informaticacloud.com/active-bpel/odata/v4/ACTOrder/](https://emw1-cai.dm-em.informaticacloud.com/active-bpel/odata/v4/ACTOrder/)</description>
+            <tags/>
+            <connectionAttributes xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd">
+               <connectionAttribute description="Host Name"
+                                    masked="false"
+                                    name="hostName"
+                                    required="true"
+                                    testWith="emw1-cai.dm-em.informaticacloud.com"
+                                    type="string"/>
+            </connectionAttributes>
+            <actions>
+               <action category="ACTORDERS"
+                       failOnError="true"
+                       forSearch="false"
+                       label="POST_ACTORDERS"
+                       maxRedirects="100"
+                       name="POST_ACTORDERS"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Add new entity to ACTORDERS</description>
+                  <input>
+                     <parameter description="New entity"
+                                label="ACTORDERS"
+                                name="ACTORDERS"
+                                required="false"
+                                testWith=""
+                                type="reference">
+                        <options>
+                           <option name="referenceTo">Informatica_OData_ACTOrder_Models_ACTORDERS_create</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/active-bpel/odata/v4/ACTOrder/ACTORDERS"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="ACTORDERS"
+                       failOnError="true"
+                       forSearch="false"
+                       label="GET_ACTORDERS"
+                       maxRedirects="100"
+                       name="GET_ACTORDERS"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Get entities from ACTORDERS</description>
+                  <input>
+                     <parameter description="Show only the first n items, see [Paging - Top](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptiontop)"
+                                label="$top"
+                                name="$top"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="int"/>
+                     <parameter description="Skip the first n items, see [Paging - Skip](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionskip)"
+                                label="$skip"
+                                name="$skip"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="int"/>
+                     <parameter description="Search items by search phrases, see [Searching](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionsearch)"
+                                label="$search"
+                                name="$search"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description="Filter items by property values, see [Filtering](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionfilter)"
+                                label="$filter"
+                                name="$filter"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                     <parameter description="Include count of items, see [Count](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptioncount)"
+                                label="$count"
+                                name="$count"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="boolean"/>
+                     <parameter description="Order items by property values, see [Sorting](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionorderby)"
+                                label="$orderby"
+                                name="$orderby"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="picklist">
+                        <options>
+                           <option name="values">[{"value":"ORDER_ID","label":"ORDER_ID"},{"value":"ORDER_ID desc","label":"ORDER_ID desc"},{"value":"CUSTOMER_ID","label":"CUSTOMER_ID"},{"value":"CUSTOMER_ID desc","label":"CUSTOMER_ID desc"},{"value":"MASTER_CUSTOMER_ID","label":"MASTER_CUSTOMER_ID"},{"value":"MASTER_CUSTOMER_ID desc","label":"MASTER_CUSTOMER_ID desc"},{"value":"PRODUCT_ID","label":"PRODUCT_ID"},{"value":"PRODUCT_ID desc","label":"PRODUCT_ID desc"},{"value":"UNITS_SOLD","label":"UNITS_SOLD"},{"value":"UNITS_SOLD desc","label":"UNITS_SOLD desc"},{"value":"PRICE_PER_UNIT","label":"PRICE_PER_UNIT"},{"value":"PRICE_PER_UNIT desc","label":"PRICE_PER_UNIT desc"},{"value":"LINE_TOTAL","label":"LINE_TOTAL"},{"value":"LINE_TOTAL desc","label":"LINE_TOTAL desc"},{"value":"ORDER_DATE","label":"ORDER_DATE"},{"value":"ORDER_DATE desc","label":"ORDER_DATE desc"}]</option>
+                        </options>
+                     </parameter>
+                     <parameter description="Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)"
+                                label="$select"
+                                name="$select"
+                                nogen="true"
+                                required="false"
+                                testWith=""
+                                type="picklist">
+                        <options>
+                           <option name="values">[{"value":"ORDER_ID","label":"ORDER_ID"},{"value":"CUSTOMER_ID","label":"CUSTOMER_ID"},{"value":"MASTER_CUSTOMER_ID","label":"MASTER_CUSTOMER_ID"},{"value":"PRODUCT_ID","label":"PRODUCT_ID"},{"value":"UNITS_SOLD","label":"UNITS_SOLD"},{"value":"PRICE_PER_UNIT","label":"PRICE_PER_UNIT"},{"value":"LINE_TOTAL","label":"LINE_TOTAL"},{"value":"ORDER_DATE","label":"ORDER_DATE"}]</option>
+                        </options>
+                     </parameter>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/active-bpel/odata/v4/ACTOrder/ACTORDERS"
+                                        verb="GET">
+                        <authentication>
+                           <username>theijst@informatica.com</username>
+                           <password>Infa!1234</password>
+                           <isExpressionInPassword>true</isExpressionInPassword>
+                        </authentication>
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="Retrieved entities"
+                            entireResponse="true"
+                            name="entireResponse"
+                            type="object"/>
+                  </output>
+               </action>
+               <action category="Batch Requests"
+                       failOnError="true"
+                       forSearch="false"
+                       label="POST_batch"
+                       maxRedirects="100"
+                       name="POST_batch"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Send a group of requests. Group multiple requests into a single request payload, see [Batch Requests](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_BatchRequests).</description>
+                  <input>
+                     <parameter description="Batch request"
+                                label="requestBody"
+                                name="requestBody"
+                                required="false"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/active-bpel/odata/v4/ACTOrder/$batch"
+                                        verb="POST">
+                        <httpHeaders>
+                           <header name="Content-Type">multipart/mixed;boundary=request-separator</header>
+                           <header name="Accept">multipart/mixed</header>
+                        </httpHeaders>
+                        <body>{$requestBody}</body>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="Batch response"
+                            entireResponse="true"
+                            name="entireResponse"
+                            type="string"/>
+                  </output>
+               </action>
+               <action category="ACTORDERS"
+                       failOnError="true"
+                       forSearch="false"
+                       label="PATCH_ACTORDERS_ORDER_ID_"
+                       maxRedirects="100"
+                       name="PATCH_ACTORDERS_ORDER_ID_"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Update entity in ACTORDERS</description>
+                  <input>
+                     <parameter description="New property values"
+                                label="ACTORDERS"
+                                name="ACTORDERS"
+                                required="false"
+                                testWith=""
+                                type="reference">
+                        <options>
+                           <option name="referenceTo">Informatica_OData_ACTOrder_Models_ACTORDERS_update</option>
+                        </options>
+                     </parameter>
+                     <parameter description="key: ORDER_ID"
+                                label="ORDER_IDPathParam"
+                                name="ORDER_IDPathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/active-bpel/odata/v4/ACTOrder/ACTORDERS('{$ORDER_IDPathParam}')"
+                                        verb="PATCH">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                        <body generateUsing="UnwrappedJSON" preserveJsonStringFormatting="false"/>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+               <action category="ACTORDERS"
+                       failOnError="true"
+                       forSearch="false"
+                       label="GET_ACTORDERS_ORDER_ID_"
+                       maxRedirects="100"
+                       name="GET_ACTORDERS_ORDER_ID_"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Get entity from ACTORDERS by key</description>
+                  <input>
+                     <parameter description="Select properties to be returned, see [Select](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_SystemQueryOptionselect)"
+                                label="$select"
+                                name="$select"
+                                required="false"
+                                testWith=""
+                                type="picklist">
+                        <options>
+                           <option name="values">[{"value":"ORDER_ID","label":"ORDER_ID"},{"value":"CUSTOMER_ID","label":"CUSTOMER_ID"},{"value":"MASTER_CUSTOMER_ID","label":"MASTER_CUSTOMER_ID"},{"value":"PRODUCT_ID","label":"PRODUCT_ID"},{"value":"UNITS_SOLD","label":"UNITS_SOLD"},{"value":"PRICE_PER_UNIT","label":"PRICE_PER_UNIT"},{"value":"LINE_TOTAL","label":"LINE_TOTAL"},{"value":"ORDER_DATE","label":"ORDER_DATE"}]</option>
+                        </options>
+                     </parameter>
+                     <parameter description="key: ORDER_ID"
+                                label="ORDER_IDPathParam"
+                                name="ORDER_IDPathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/active-bpel/odata/v4/ACTOrder/ACTORDERS('{$ORDER_IDPathParam}')"
+                                        verb="GET">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output>
+                     <field description="Retrieved entity"
+                            entireResponse="true"
+                            name="Informatica_OData_ACTOrder_Models_ACTORDERS"
+                            type="reference">
+                        <options>
+                           <option name="referenceTo">Informatica_OData_ACTOrder_Models_ACTORDERS</option>
+                        </options>
+                     </field>
+                  </output>
+               </action>
+               <action category="ACTORDERS"
+                       failOnError="true"
+                       forSearch="false"
+                       label="DELETE_ACTORDERS_ORDER_ID_"
+                       maxRedirects="100"
+                       name="DELETE_ACTORDERS_ORDER_ID_"
+                       preemptiveAuth="true"
+                       responseEncoding="">
+                  <description>Delete entity from ACTORDERS</description>
+                  <input>
+                     <parameter description="key: ORDER_ID"
+                                label="ORDER_IDPathParam"
+                                name="ORDER_IDPathParam"
+                                nogen="true"
+                                required="true"
+                                testWith=""
+                                type="string"/>
+                  </input>
+                  <binding>
+                     <restSimpleBinding multiUsing="semicolonSeparated"
+                                        url="https://{$hostName}/active-bpel/odata/v4/ACTOrder/ACTORDERS('{$ORDER_IDPathParam}')"
+                                        verb="DELETE">
+                        <httpHeaders>
+                           <header name="Content-Type">application/json</header>
+                           <header name="Accept">application/json</header>
+                        </httpHeaders>
+                     </restSimpleBinding>
+                  </binding>
+                  <output/>
+               </action>
+            </actions>
+            <objects>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Informatica_OData_ACTOrder_Models_ACTORDERS_create">
+                  <description/>
+                  <detail>
+                     <field name="MASTER_CUSTOMER_ID" type="double"/>
+                     <field name="ORDER_DATE" type="datetime"/>
+                     <field name="ORDER_ID" type="double"/>
+                     <field name="UNITS_SOLD" type="double"/>
+                     <field name="LINE_TOTAL" type="double"/>
+                     <field name="CUSTOMER_ID" type="double"/>
+                     <field name="PRICE_PER_UNIT" type="double"/>
+                     <field name="PRODUCT_ID" type="double"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Informatica_OData_ACTOrder_Models_ACTORDERS">
+                  <description/>
+                  <detail>
+                     <field name="MASTER_CUSTOMER_ID" type="double"/>
+                     <field name="ORDER_DATE" type="datetime"/>
+                     <field name="ORDER_ID" type="double"/>
+                     <field name="UNITS_SOLD" type="double"/>
+                     <field name="LINE_TOTAL" type="double"/>
+                     <field name="CUSTOMER_ID" type="double"/>
+                     <field name="PRICE_PER_UNIT" type="double"/>
+                     <field name="PRODUCT_ID" type="double"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="Informatica_OData_ACTOrder_Models_ACTORDERS_update">
+                  <description/>
+                  <detail>
+                     <field name="MASTER_CUSTOMER_ID" type="double"/>
+                     <field name="ORDER_DATE" type="datetime"/>
+                     <field name="UNITS_SOLD" type="double"/>
+                     <field name="LINE_TOTAL" type="double"/>
+                     <field name="CUSTOMER_ID" type="double"/>
+                     <field name="PRICE_PER_UNIT" type="double"/>
+                     <field name="PRODUCT_ID" type="double"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="string">
+                  <description/>
+                  <detail>
+                     <field name="string" type="string"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="boolean">
+                  <description/>
+                  <detail>
+                     <field name="boolean" type="boolean"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="double">
+                  <description/>
+                  <detail>
+                     <field name="double" type="double"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="integer">
+                  <description/>
+                  <detail>
+                     <field name="integer" type="int"/>
+                  </detail>
+               </processObject>
+               <processObject xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2011/06/avosHostEnvironment.xsd"
+                              isByCopy="true"
+                              name="error">
+                  <description>Error</description>
+                  <detail/>
+               </processObject>
+            </objects>
+         </businessConnector>
+      </types1:Entry>
+      <types1:GUID>auaR3ZQFQcgg38EBRf6Hub</types1:GUID>
+      <types1:DisplayName>ActodersService</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-06-24T07:30:38.756Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

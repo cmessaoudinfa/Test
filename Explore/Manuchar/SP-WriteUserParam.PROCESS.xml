@@ -1,0 +1,65 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>O2Fjuz3PI2HBxZm-gt-36042939-2021-06-22T13:47:07.265Z::pd.xml</types1:EntryId>
+      <types1:Name>SP-WriteUserParam</types1:Name>
+      <types1:ParentFlowIds>EDvGFaaaaaaaaaa-gt-12929694-2021-06-22T13:47:08.749Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+process</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:bolt.informatica.com</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>theijst@informatica.com</types1:CreatedBy>
+      <types1:CreationDate>2021-06-22T13:47:07Z</types1:CreationDate>
+      <types1:ModifiedBy/>
+      <types1:PublicationStatus>unpublished</types1:PublicationStatus>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <process xmlns="http://schemas.active-endpoints.com/appmodules/screenflow/2010/10/avosScreenflow.xsd"
+                  xmlns:list="urn:activevos:spi:list:functions"
+                  displayName="SP-WriteUserParam"
+                  name="SP-WriteUserParam"
+                  overrideAPIName="false">
+            <appliesTo/>
+            <description/>
+            <tags>.agent:bolt.informatica.com</tags>
+            <generator>Informatica Process Designer 11</generator>
+            <input>
+               <parameter description="" name="sp_inp_param" type="string">
+                  <options>
+                     <option name="required">false</option>
+                  </options>
+               </parameter>
+            </input>
+            <notes/>
+            <deployment suspendOnFault="false" tracingLevel="none">
+               <targetLocation>bolt.informatica.com</targetLocation>
+               <rest/>
+            </deployment>
+            <flow id="a">
+               <start id="b">
+                  <link id="kipyl34b" targetId="kipyl34a"/>
+               </start>
+               <service id="kipyl34a">
+                  <title>Run a Shell Command</title>
+                  <serviceName>avShellService</serviceName>
+                  <serviceGUID/>
+                  <serviceInput>
+                     <parameter name="command" source="formula">
+                        <expression language="XQuery">"echo '$$tgt_param="||$input.sp_inp_param||"' &gt; ff-to-ff.txt"</expression>
+                     </parameter>
+                     <parameter name="workingDirPath" source="constant">/home/spani/bolt_infaagent/apps/Data_Integration_Server/data/userparameters/</parameter>
+                  </serviceInput>
+                  <link id="kipyl34c" targetId="c"/>
+               </service>
+               <end id="c"/>
+            </flow>
+         </process>
+      </types1:Entry>
+      <types1:GUID>0NY4HbSb4QCeqOylYLUS6T</types1:GUID>
+      <types1:DisplayName>SP-WriteUserParam</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2021-06-24T07:30:38.765Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>

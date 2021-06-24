@@ -1,0 +1,53 @@
+[
+   {
+      "objectGuid": "9pV0IY4PjWhkno7saxvj8u",
+      "objectName": "mplt_Email_Validation",
+      "objectType": "DMAPPLET",
+      "path": "/Explore/Data Quality",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "JSON",
+            "description": "This mapplet validates the email format.  It does not check if the email is an activated address.  \nReturns Valid or Invalid.\n\nTag : Accuracy,Conformity/Validity,Integrity/Conformity\n",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [
+            {
+               "name": "id",
+               "value": "@1"
+            }
+         ],
+         "modelVersion": {
+            "major": 0,
+            "minor": 0
+         },
+         "objectRefs": [
+            "2mmYHT3tItsgBMo9elQf4Z"
+         ],
+         "repoInfo": {
+            "repoHandle": "01059I4000000000001I"
+         }
+      }
+   },
+   {
+      "objectGuid": "2mmYHT3tItsgBMo9elQf4Z",
+      "objectName": "c_validation_domain",
+      "objectType": "CLEANSE",
+      "path": "/Explore/Data Quality",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "Binary",
+            "description": "Validates the domain of an email",
+            "documentState": "VALID"
+         },
+         "contextAttributes": [],
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "2mmYHT3tItsgBMo9elQf4Z"
+         }
+      }
+   }
+]

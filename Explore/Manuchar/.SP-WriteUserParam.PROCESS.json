@@ -1,0 +1,24 @@
+[
+   {
+      "objectGuid": "0NY4HbSb4QCeqOylYLUS6T",
+      "objectName": "SP-WriteUserParam",
+      "objectType": "PROCESS",
+      "path": "/Explore/Manuchar",
+      "metadata": {
+         "additionalInfo": {
+            "contentType": "application/json; charset=utf-8",
+            "description": "",
+            "documentState": "VALID"
+         },
+         "contextAttributes": null,
+         "modelVersion": {
+            "major": 1,
+            "minor": 0
+         },
+         "objectRefs": [],
+         "repoInfo": {
+            "repoHandle": "O2Fjuz3PI2HBxZm-gt-36042939-2021-06-22T13:47:07.265Z::pd.xml"
+         }
+      }
+   }
+]
