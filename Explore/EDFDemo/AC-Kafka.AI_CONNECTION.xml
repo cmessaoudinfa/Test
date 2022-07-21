@@ -1,0 +1,107 @@
+<aetgt:getResponse xmlns:aetgt="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd"
+                   xmlns:types1="http://schemas.active-endpoints.com/appmodules/repository/2010/10/avrepository.xsd">
+   <types1:Item>
+      <types1:EntryId>utaaabbgdoGsF4X-gt-5030204-2022-07-13T17:41:25.336Z::conn.xml</types1:EntryId>
+      <types1:Name>AC-Kafka</types1:Name>
+      <types1:ParentFlowIds>bdzsvE3C7snSDg8-gt-10232337-2022-07-13T17:44:31.025Z::pd.xml,cn3wOLIFvukNXHV-gt-10149918-2022-07-13T18:00:17.047Z::pd.xml,ZXXUfTRgpDqotxG-gt-27404382-2022-07-19T22:04:41.823Z::pd.xml</types1:ParentFlowIds>
+      <types1:MimeType>application/xml+connection</types1:MimeType>
+      <types1:Description/>
+      <types1:AppliesTo/>
+      <types1:Tags>.agent:NLW1PF1AJMVP</types1:Tags>
+      <types1:VersionLabel>1.0</types1:VersionLabel>
+      <types1:State>CURRENT</types1:State>
+      <types1:ProcessGroup/>
+      <types1:CreatedBy>infa_iics</types1:CreatedBy>
+      <types1:CreationDate>2022-07-13T17:41:25Z</types1:CreationDate>
+      <types1:ModifiedBy>chihab.ps.edf</types1:ModifiedBy>
+      <types1:ModificationDate>2022-07-20T06:41:29Z</types1:ModificationDate>
+      <types1:PublicationStatus>out-of-date</types1:PublicationStatus>
+      <types1:PublishedBy>infa_iics</types1:PublishedBy>
+      <types1:PublicationDate>2022-07-19T22:07:46Z</types1:PublicationDate>
+      <types1:PublishedContributionId>project:/rt.connection/AC-Kafka/AC-Kafka.conn.xml</types1:PublishedContributionId>
+      <types1:AutosaveExists>false</types1:AutosaveExists>
+      <types1:Entry>
+         <connection xmlns="http://schemas.informatica.com/socrates/data-services/2014/04/avosConnections.xsd"
+                     displayName="AC-Kafka"
+                     label="AC-Kafka"
+                     name="AC-Kafka">
+            <description/>
+            <tags>.agent:NLW1PF1AJMVP</tags>
+            <agent>NLW1PF1AJMVP</agent>
+            <attributes>
+               <attribute encrypted="false" name="kafkaHost" value="localhost"/>
+               <attribute encrypted="false" name="kafkaPort" value="9092"/>
+               <attribute encrypted="false" name="additionalBrokers" value=""/>
+               <attribute encrypted="false" name="otherAttributesCommon" value=""/>
+               <attribute encrypted="false"
+                          name="sslTruststoreLocation"
+                          value="chihab.messaoud@hotmail.com"/>
+               <attribute encrypted="true" name="sslTruststorePassword" value=""/>
+               <attribute encrypted="false" name="sslKeystoreLocation" value=""/>
+               <attribute encrypted="true" name="sslKeystorePassword" value=""/>
+               <attribute encrypted="true" name="sslKeyPassword" value=""/>
+               <attribute encrypted="false" name="saslMechanism" value="PLAIN"/>
+               <attribute encrypted="false" name="saslJaasConfig" value=""/>
+               <attribute encrypted="false" name="Use SSL" value="false"/>
+               <attribute encrypted="false" name="Use SASL" value="false"/>
+            </attributes>
+            <consumers>
+               <consumer enabled="true" name="KafkaConsumer" typeName="KafkaConsumer">
+                  <description>Use this event source to read new messages from Kafka.</description>
+                  <attributes>
+                     <attribute encrypted="false" name="loadBalance" value="false"/>
+                     <attribute encrypted="false" name="topic" value="quickstart-events"/>
+                     <attribute encrypted="false" name="groupId" value="org.apache.kafka"/>
+                     <attribute encrypted="false" name="contentFormat" value="TEXT"/>
+                     <attribute encrypted="false" name="otherAttributesProducerConsumer" value=""/>
+                  </attributes>
+               </consumer>
+               <consumer enabled="true" name="contact" typeName="KafkaConsumer">
+                  <description>Use this event source to read new messages from Kafka.</description>
+                  <attributes>
+                     <attribute encrypted="false" name="loadBalance" value="false"/>
+                     <attribute encrypted="false" name="topic" value="contact"/>
+                     <attribute encrypted="false" name="groupId" value="org.apache.kafka"/>
+                     <attribute encrypted="false" name="contentFormat" value="TEXT"/>
+                     <attribute encrypted="false" name="otherAttributesProducerConsumer" value=""/>
+                  </attributes>
+               </consumer>
+            </consumers>
+            <producers>
+               <producer enabled="true" name="KafkaProducer" typeName="KafkaProducer">
+                  <description>Use this event target to write new messages to Kafka.</description>
+                  <attributes>
+                     <attribute encrypted="false" name="topic" value="quickstart-events"/>
+                     <attribute encrypted="false" name="groupId" value="org.apache.kafka"/>
+                     <attribute encrypted="false" name="contentFormat" value="TEXT"/>
+                     <attribute encrypted="false" name="otherAttributesProducerConsumer" value=""/>
+                  </attributes>
+               </producer>
+               <producer enabled="true" name="ProducerContact" typeName="KafkaProducer">
+                  <description>Use this event target to write new messages to Kafka.</description>
+                  <attributes>
+                     <attribute encrypted="false" name="topic" value="contact"/>
+                     <attribute encrypted="false" name="groupId" value="org.apache.kafka"/>
+                     <attribute encrypted="false" name="contentFormat" value="TEXT"/>
+                     <attribute encrypted="false" name="otherAttributesProducerConsumer" value=""/>
+                  </attributes>
+               </producer>
+            </producers>
+            <javaConnector xmlns="http://schemas.informatica.com/appmodules/screenflow/2014/04/avosConnectors.xsd"
+                           agentOnly="true"
+                           plugin="Camel"
+                           supportsConnectionTest="true"
+                           supportsDataPreview="false"
+                           supportsOData="false"
+                           supportsPublishSkipMetadataRefresh="false"
+                           type="KAFKA"
+                           uuid="c5d3f9bc-95ba-48e6-99df-5bca133b44b3">
+               <description>Provides connections to KAFKA brokers.</description>
+            </javaConnector>
+         </connection>
+      </types1:Entry>
+      <types1:GUID>giMfr1hyG6ElW0cFSJrLWc</types1:GUID>
+      <types1:DisplayName>AC-Kafka</types1:DisplayName>
+   </types1:Item>
+   <types1:CurrentServerDateTime>2022-07-21T10:14:06.386Z</types1:CurrentServerDateTime>
+</aetgt:getResponse>
